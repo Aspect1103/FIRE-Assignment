@@ -11,9 +11,9 @@ public class Teamwork {
         details[0] = "Ashwell";
         details[1] = "Jack";
         details[2] = "20035866";
-        details[3] = "";
+        details[3] = "Alliu";
         details[4] = "Klevi";
-        details[5] = "";
+        details[5] = "20067052";
     }
 
     public String[] getTeamDetails() {
