@@ -12,6 +12,7 @@
 
 # Project files
 .idea/
+out/
 *.iml
 
 # Package Files #
