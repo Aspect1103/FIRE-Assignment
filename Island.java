@@ -7,10 +7,11 @@ import java.util.*;
  * currently on the island. These lists are updated whenever passes enter or leave
  * an island,so that it is always possible to say which passes are on the island
  *
- * @author (your name)
+ * @author (20067052)
  * @version (a version number or a date)
  */
 
 public class Island {
+
 
 }
