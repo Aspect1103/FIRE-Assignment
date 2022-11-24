@@ -30,6 +30,9 @@ public class Island {
     public int islandRating(){return island_Rating;}
     public int islandCapacity(){return island_capacity;}
 
+    public boolean PassEnter(Pass temp){
+        return passList.size() <= island_capacity;
+    }
     public void enter(Pass temp){
         if(passList.size()<island_capacity){
             passList.add(temp);
@@ -49,6 +52,13 @@ public String capacity() {
         for(Pass p :passList){
             System.out.println(p);
         }}
+    public String listPass(){
+        String s="";
+        for(Pass p :passList){
+            s = s + p.toString() +"\n";
+        }
+        return s;
+    }
     public Pass getPassDetails(int id) {
         for (Pass temp:passList){
             if(temp.getPassIdNumber()==id){
@@ -62,11 +72,11 @@ public String capacity() {
         return passList.contains(p);
     }
 public String toString() {
-    return "********************\nIsland ID Number: " +
+    return "\n"+"********************\nIsland ID Number: " +
             island_ID + "\nIsland Name: " +
             island_Name + "\nIsland Rating: " +
             island_Rating + "\nIsland capacity: " +
-            island_capacity + "\nPass List: "+
+            island_capacity + "\nPass List in Island: "+"\n"+
             passList + "\n********************";
 }
 }
