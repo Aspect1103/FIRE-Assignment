@@ -52,13 +52,6 @@ public String capacity() {
         for(Pass p :passList){
             System.out.println(p);
         }}
-    public String listPass(){
-        String s="";
-        for(Pass p :passList){
-            s = s + p.toString() +"\n";
-        }
-        return s;
-    }
     public Pass getPassDetails(int id) {
         for (Pass temp:passList){
             if(temp.getPassIdNumber()==id){

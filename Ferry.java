@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A ferry provides a one-way journey between two islands. It
  * has a ferry code and information about both the source and
@@ -10,11 +12,13 @@ public class Ferry {
     private int ferry_ID;
     private Island source_island;
     private Island destination_island;
+    private ArrayList<Pass> pass_inFerry;
 
-    public  Ferry(int ferryCode,Island sourceIsland,Island destinationIsland) {
+    public  Ferry(int ferryCode,Island sourceIsland,Island destinationIsland ) {
         ferry_ID=ferryCode;
         source_island=sourceIsland;
         destination_island=destinationIsland;
+        pass_inFerry=new ArrayList<Pass>();
     }
     public int getFerryCode(){return ferry_ID;}
     public Island getSourceIsland(){return source_island;}
@@ -28,16 +32,23 @@ public class Ferry {
         } else {
                     island1.leave(pass);
                     island2.enter(pass);
+                    pass_inFerry.add(pass);
                     pass.useFerry();
                     return "The person with the Pass can travel ";
         }
     }
+    public String listPass(){
+        String s="";
+        for(Pass p :pass_inFerry){
+            s = s + p.toString() +"\n";
+        }
+        return s;}
     public String toString() {
         return "\n"+"********************\nFerry ID Number: " +
                 ferry_ID + "\nSource Island : " +
                 getSourceIsland() + "\nDestination Island : " +
                 getDestinationIsland() + "\nPass List in Ferry: " +"\n"+
-                getDestinationIsland().listPass() + "\n********************";
+                listPass() + "\n********************";
     }
 
 }
