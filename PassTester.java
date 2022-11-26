@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Write a description of class PassTester here.
  *
- * @author (your name)
+ * @author (Jack)
  * @version (a version number or a date)
  */
 public class PassTester {

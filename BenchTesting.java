@@ -1,3 +1,9 @@
+/**
+ * Write a description of class BenchTester here.
+ *
+ * @author (Klevi)
+ * @version (a version number or a date)
+ */
 public class BenchTesting {
     public static void main(String[] args) {
         // Initialise some islands
@@ -70,66 +76,56 @@ public class BenchTesting {
         System.out.println("Expected: true. Actual: " + island1.isPassOnIsland(pass1));
         System.out.println("Expected: false. Actual: " + island1.isPassOnIsland(pass2));
 
-
+        // Initialise ferry test
+        System.out.println("**********FERRY TEST**********");
+        Island island5 = new Island(444, "Pain", 2, 1);
+        Island island6 = new Island(444, "Pain", 2, 1);
+        Island island7 = new Island(412, "Pain", 2, 2);
+        Island island8 = new Island(422, "one", 2, 1);
+        Island island9 = new Island(422, "one", 2, 1);
+        Island island10 = new Island(412, "two", 2, 2);
+        Island sun = new Island(546, "Sun", 2, 2);
+        Island moon = new Island(546, "Moon", 2, 2);
         Ferry ferry1 = new Ferry(1, island1, island2);
         Ferry ferry2 = new Ferry(2, island2, island3);
         Ferry ferry3 = new Ferry(3, island3, island4);
-//  Multiple tests
+        Ferry ferry4 = new Ferry(5, island6, island7);
+        Ferry ferry5 = new Ferry(5, island7, island8);
+        Ferry ferry6 = new Ferry(5, island9, island10);
+        Ferry titanic = new Ferry(767, sun, moon);
+        Pass pass5 = new Pass(982, "Temp5", 10, 100, 1);
+        Pass pass6 = new Pass(982, "Temp5", 10, 1, 1);
+        Pass pass7 = new Pass(982, "Temp6", 10, 22, 1);
+        Pass pass8 = new Pass(982, "Temp7", 10, 22, 1);
+        Pass vip = new Pass(101, "Rich", 10, 100, 20);
+
+        // Test ferry
         island1.enter(pass1);
         island2.enter(pass2);
         ferry1.ProcessPass(pass1, island1, island2);
-
-
         System.out.println("Expected: 1. Actual: " + ferry1.getFerryCode());
         System.out.println("Expected: island2(Sweetfish). Actual: " + ferry2.getSourceIsland());
         System.out.println("Expected: island4(Egg). Actual: " + ferry3.getDestinationIsland());
-
         System.out.println("Expected: true. Actual:\n " + ferry1.CanPassTravel(pass1));
         System.out.println("Expected: false. Actual:\n " + ferry2.CanPassTravel(pass4));
-
-
         island1.enter(pass1);
         System.out.println("Expected: The person with the Pass can't travel to the next Island(luxury rate is lower). " + "Actual:\n " + ferry1.ProcessPass(pass1, island1, island2));
-        Pass pass5 = new Pass(982, "Temp5", 10, 100, 1);
-        Island island5 = new Island(444, "Pain", 2, 1);
-        Ferry ferry4 = new Ferry(4, island4, island5);
         island5.enter(pass1);
         System.out.println("Expected: The person with the Pass can't travel to the next Island ( exceed the maximum capacity of the destination island)." + "Actual:\n " + ferry1.ProcessPass(pass5, island4, island5));
-
-        Pass pass6 = new Pass(982, "Temp5", 10, 1, 1);
-        Island island6 = new Island(444, "Pain", 2, 1);
-        Island island7 = new Island(412, "Pain", 2, 2);
-        Ferry ferry5 = new Ferry(5, island6, island7);
         island6.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island ( The pass does not have enough credits for the ferry journey)." + "Actual:\n " + ferry5.ProcessPass(pass6, island6, island7));
-
-        Pass pass7 = new Pass(982, "Temp6", 10, 22, 1);
-        Island island8 = new Island(422, "one", 2, 1);
-        Ferry ferry6 = new Ferry(5, island7, island8);
-
+        System.out.println("Expected: The person with the Pass can't travel to the next Island ( The pass does not have enough credits for the ferry journey)." + "Actual:\n " + ferry4.ProcessPass(pass6, island6, island7));
         island2.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island ( the Pass is not listed in the source island for the ferry)." + " Actual:\n " + ferry6.ProcessPass(pass7, island7, island8));
-
-        Pass pass8 = new Pass(982, "Temp7", 10, 22, 1);
-        Island island9 = new Island(422, "one", 2, 1);
-        Island island10 = new Island(412, "two", 2, 2);
-        Ferry ferry7 = new Ferry(5, island9, island10);
+        System.out.println("Expected: The person with the Pass can't travel to the next Island ( the Pass is not listed in the source island for the ferry)." + " Actual:\n " + ferry5.ProcessPass(pass7, island7, island8));
         island9.enter(pass8);
-        System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry7.ProcessPass(pass8, island9, island10));
-
+        System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry6.ProcessPass(pass8, island9, island10));
         System.out.println("""
                 Expected: \nFerry id: 767
                 Source Island name : Sun , pass list in Sun->empty,
                 Destination Island : Moon,pass list in Moon->Rich,
                 Pass List in Ferry->Rich \nActual:
                 \s""");
-        Pass vip = new Pass(101, "Rich", 10, 100, 20);
-        Island sun = new Island(546, "Sun", 2, 2);
-        Island moon = new Island(546, "Moon", 2, 2);
-        Ferry titanic = new Ferry(767, sun, moon);
         sun.enter(vip);
         titanic.ProcessPass(vip, sun, moon);
         System.out.println(titanic);
-
     }
 }
