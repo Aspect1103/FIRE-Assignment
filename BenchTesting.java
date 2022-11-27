@@ -119,11 +119,45 @@ public class BenchTesting {
         island9.enter(pass8);
         System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry6.ProcessPass(pass8, island9, island10));
         System.out.println("""
-                Expected: \nFerry id: 767
-                Source Island name : Sun , pass list in Sun->empty,
-                Destination Island : Moon,pass list in Moon->Rich,
-                Pass List in Ferry->Rich \nActual:
-                \s""");
+         Expected: 
+         ********************
+         Ferry ID Number: 767
+         Source Island :\s
+         ********************
+         Island ID Number: 546
+         Island Name: Sun
+         Island Rating: 2
+         Island capacity: 2
+         Pass List in Island:\s
+         []
+         ********************
+         Destination Island :\s
+         ********************
+         Island ID Number: 546
+         Island Name: Moon
+         Island Rating: 2
+         Island capacity: 2
+         Pass List in Island:\s
+         [********************
+         Guest Name: Rich
+         Pass ID Number: 101
+         Luxury Rating: 10
+         Credits: 97
+         Journey Points: 21
+         ********************]
+         ********************
+         Pass List in Ferry:\s
+         ********************
+         Guest Name: Rich
+         Pass ID Number: 101
+         Luxury Rating: 10
+         Credits: 97
+         Journey Points: 21
+         ********************
+                                
+         ********************
+         \nActual:
+          \s""");
         sun.enter(vip);
         titanic.ProcessPass(vip, sun, moon);
         System.out.println(titanic);
