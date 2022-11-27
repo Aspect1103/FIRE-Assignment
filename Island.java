@@ -12,49 +12,49 @@ import java.util.*;
  * @version (a version number or a date)
  */
 public class Island {
-    private int island_ID;
-    private String island_Name;
-    private int island_Rating;
-    private int island_capacity;
+    private int islandID;
+    private String islandName;
+    private int islandRating;
+    private int islandCapacity;
     private ArrayList<Pass> passList;
 
     public Island(int id, String name, int rate, int capacity) {
-        island_ID = id;
-        island_Name = name;
-        island_Rating = rate;
-        island_capacity = capacity;
-        passList = new ArrayList<Pass>(island_capacity);
+        islandID = id;
+        islandName = name;
+        islandRating = rate;
+        islandCapacity = capacity;
+        passList = new ArrayList<Pass>(islandCapacity);
     }
 
     public int getIslandNumber() {
-        return island_ID;
+        return islandID;
     }
 
     public String getIslandName() {
-        return island_Name;
+        return islandName;
     }
 
     public int getIslandRating() {
-        return island_Rating;
+        return islandRating;
     }
 
     public int getIslandCapacity() {
-        return island_capacity;
+        return islandCapacity;
     }
 
     public boolean canPassEnter(Pass temp) {
-        return passList.size() <= island_capacity;
+        return passList.size() <= islandCapacity;
     }
 
     public void enter(Pass temp) {
-        if (passList.size() < island_capacity) {passList.add(temp);}
+        if (passList.size() < islandCapacity) {passList.add(temp);}
     }
     public void leave(Pass temp) {
         passList.remove(temp);
     }
 
     public String capacity() {
-        if (passList.size() < island_capacity) {
+        if (passList.size() < islandCapacity) {
             return "The island has capacity";
         } else return "The island reached the maximum capacity";
     }
@@ -81,10 +81,10 @@ public class Island {
 
     public String toString() {
         return "\n" + "********************\nIsland ID Number: " +
-                island_ID + "\nIsland Name: " +
-                island_Name + "\nIsland Rating: " +
-                island_Rating + "\nIsland capacity: " +
-                island_capacity + "\nPass List in Island: " + "\n" +
+                islandID + "\nIsland Name: " +
+                islandName + "\nIsland Rating: " +
+                islandRating + "\nIsland capacity: " +
+                islandCapacity + "\nPass List in Island: " + "\n" +
                 passList + "\n********************";
     }
 }
