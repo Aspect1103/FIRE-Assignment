@@ -13,10 +13,10 @@ public class BenchTesting {
         Island island4 = new Island(444, "Egg", 10, 2);
 
         // Test the accessors
-        System.out.println("Expected: 111. Actual: " + island1.islandNumber());
-        System.out.println("Expected: Sweetfish. Actual: " + island2.islandName());
-        System.out.println("Expected: 2. Actual: " + island3.islandRating());
-        System.out.println("Expected: 2. Actual: " + island1.islandCapacity());
+        System.out.println("Expected: 111. Actual: " + island1.getIslandNumber());
+        System.out.println("Expected: Sweetfish. Actual: " + island2.getIslandName());
+        System.out.println("Expected: 2. Actual: " + island3.getIslandRating());
+        System.out.println("Expected: 2. Actual: " + island1.getIslandCapacity());
 
         // Create some passes
         Pass pass1 = new Pass(123, "Temp1", 5, 10, 1);
@@ -102,22 +102,22 @@ public class BenchTesting {
         // Test ferry
         island1.enter(pass1);
         island2.enter(pass2);
-        ferry1.ProcessPass(pass1, island1, island2);
+        ferry1.processPass(pass1, island1, island2);
         System.out.println("Expected: 1. Actual: " + ferry1.getFerryCode());
         System.out.println("Expected: island2(Sweetfish). Actual: " + ferry2.getSourceIsland());
         System.out.println("Expected: island4(Egg). Actual: " + ferry3.getDestinationIsland());
-        System.out.println("Expected: true. Actual:\n " + ferry1.CanPassTravel(pass1));
-        System.out.println("Expected: false. Actual:\n " + ferry2.CanPassTravel(pass4));
+        System.out.println("Expected: true. Actual:\n " + ferry1.canPassTravel(pass1));
+        System.out.println("Expected: false. Actual:\n " + ferry2.canPassTravel(pass4));
         island1.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island(luxury rate is lower). " + "Actual:\n " + ferry1.ProcessPass(pass1, island1, island2));
+        System.out.println("Expected: The person with the Pass can't travel to the next Island(luxury rate is lower). " + "Actual:\n " + ferry1.processPass(pass1, island1, island2));
         island5.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island ( exceed the maximum capacity of the destination island)." + "Actual:\n " + ferry1.ProcessPass(pass5, island4, island5));
+        System.out.println("Expected: The person with the Pass can't travel to the next Island ( exceed the maximum capacity of the destination island)." + "Actual:\n " + ferry1.processPass(pass5, island4, island5));
         island6.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island ( The pass does not have enough credits for the ferry journey)." + "Actual:\n " + ferry4.ProcessPass(pass6, island6, island7));
+        System.out.println("Expected: The person with the Pass can't travel to the next Island ( The pass does not have enough credits for the ferry journey)." + "Actual:\n " + ferry4.processPass(pass6, island6, island7));
         island2.enter(pass1);
-        System.out.println("Expected: The person with the Pass can't travel to the next Island ( the Pass is not listed in the source island for the ferry)." + " Actual:\n " + ferry5.ProcessPass(pass7, island7, island8));
+        System.out.println("Expected: The person with the Pass can't travel to the next Island ( the Pass is not listed in the source island for the ferry)." + " Actual:\n " + ferry5.processPass(pass7, island7, island8));
         island9.enter(pass8);
-        System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry6.ProcessPass(pass8, island9, island10));
+        System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry6.processPass(pass8, island9, island10));
         System.out.println("""
          Expected: 
          ********************
@@ -159,7 +159,7 @@ public class BenchTesting {
          \nActual:
           \s""");
         sun.enter(vip);
-        titanic.ProcessPass(vip, sun, moon);
+        titanic.processPass(vip, sun, moon);
         System.out.println(titanic);
     }
 }

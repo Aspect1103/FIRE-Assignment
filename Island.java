@@ -26,32 +26,29 @@ public class Island {
         passList = new ArrayList<Pass>(island_capacity);
     }
 
-    public int islandNumber() {
+    public int getIslandNumber() {
         return island_ID;
     }
 
-    public String islandName() {
+    public String getIslandName() {
         return island_Name;
     }
 
-    public int islandRating() {
+    public int getIslandRating() {
         return island_Rating;
     }
 
-    public int islandCapacity() {
+    public int getIslandCapacity() {
         return island_capacity;
     }
 
-    public boolean PassEnter(Pass temp) {
+    public boolean canPassEnter(Pass temp) {
         return passList.size() <= island_capacity;
     }
 
     public void enter(Pass temp) {
-        if (passList.size() < island_capacity) {
-            passList.add(temp);
-        }
+        if (passList.size() < island_capacity) {passList.add(temp);}
     }
-
     public void leave(Pass temp) {
         passList.remove(temp);
     }

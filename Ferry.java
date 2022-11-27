@@ -9,59 +9,58 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public class Ferry {
-    private int ferry_ID;
-    private Island source_island;
-    private Island destination_island;
-    private ArrayList<Pass> pass_inFerry;
+    private int ferryID;
+    private Island sourceIsland;
+    private Island destinationisland;
+    private ArrayList<Pass> passInFerry;
 
-    public Ferry(int ferryCode, Island sourceIsland, Island destinationIsland) {
-        ferry_ID = ferryCode;
-        source_island = sourceIsland;
-        destination_island = destinationIsland;
-        pass_inFerry = new ArrayList<Pass>();
+    public Ferry(int ferryCode, Island scIsland, Island destinationIsland) {
+        ferryID = ferryCode;
+        sourceIsland=scIsland ;
+        destinationisland = destinationIsland;
+        passInFerry = new ArrayList<Pass>();
     }
 
     public int getFerryCode() {
-        return ferry_ID;
+        return ferryID;
     }
 
     public Island getSourceIsland() {
-        return source_island;
+        return sourceIsland;
     }
 
     public Island getDestinationIsland() {
-        return destination_island;
+        return destinationisland;
     }
 
-    public boolean CanPassTravel(Pass temp) {
-        return temp.getCredits() >= 3;
-    }
+    public boolean canPassTravel(Pass temp) {return temp.getCredits() >= 3;}
 
-    public String ProcessPass(Pass pass, Island island1, Island island2) {
-        if (pass.getLuxuryRating() < island2.islandRating() ||
-                !island1.PassEnter(pass) || !CanPassTravel(pass)
-                || !island1.isPassOnIsland(pass)) {
+    public String processPass(Pass pass, Island island1, Island island2) {
+        if (pass.getLuxuryRating() < island2.getIslandRating() ||
+            !island1.canPassEnter(pass) ||
+            !canPassTravel(pass) ||
+            !island1.isPassOnIsland(pass)) {
             return "The person with the Pass can't travel to the next Island";
         } else {
             island1.leave(pass);
             island2.enter(pass);
-            pass_inFerry.add(pass);
+            passInFerry.add(pass);
             pass.useFerry();
-            return "The person with the Pass can travel ";
+            return "The person with the Pass can travel";
         }
     }
 
     public String listPass() {
         String s = "";
-        for (Pass p : pass_inFerry) {
-            s = s + p.toString() + "\n";
+        for (Pass p : passInFerry) {
+            s += p.toString() + "\n";
         }
         return s;
     }
 
     public String toString() {
         return "\n" + "********************\nFerry ID Number: " +
-                ferry_ID + "\nSource Island : " +
+                ferryID + "\nSource Island : " +
                 getSourceIsland() + "\nDestination Island : " +
                 getDestinationIsland() + "\nPass List in Ferry: " + "\n" +
                 listPass() + "\n********************";
