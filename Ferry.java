@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * has a ferry code and information about both the source and
  * the destination island
  *
- * @author (20067052)
+ * @author (Klevi)
  * @version (a version number or a date)
  */
 public class Ferry {
@@ -16,7 +16,7 @@ public class Ferry {
 
     public Ferry(int ferryCode, Island scIsland, Island destinationIsland) {
         ferryID = ferryCode;
-        sourceIsland=scIsland ;
+        sourceIsland = scIsland;
         destinationisland = destinationIsland;
         passInFerry = new ArrayList<Pass>();
     }

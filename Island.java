@@ -8,7 +8,7 @@ import java.util.*;
  * currently on the island. These lists are updated whenever passes enter or leave
  * an island,so that it is always possible to say which passes are on the island
  *
- * @author (Klevi20067052)
+ * @author (Klevi)
  * @version (a version number or a date)
  */
 public class Island {
@@ -60,7 +60,6 @@ public class Island {
     }
 
     public void listCurrentPasses(){
-
         for (Pass p : passList) {
             System.out.println(p);
         }
