@@ -57,22 +57,55 @@ public class BenchTesting {
         System.out.println("Expected: The island reached the maximum capacity. Actual: :" + island3.capacity());
 
         // Test the methods
-        System.out.println("Expected: temp1. Actual: ");
+        System.out.println("""
+        Expected:\s
+        ********************
+        Guest Name: Temp1
+        Pass ID Number: 123
+        Luxury Rating: 5
+        Credits: 10
+        Journey Points: 1
+        ********************.
+        Actual:\s""");
         island1.listCurrentPasses();
-        System.out.println("Expected: temp2. Actual: ");
+        System.out.println("""
+        Expected:\s
+        ********************
+        Guest Name: Temp2
+        Pass ID Number: 456
+        Luxury Rating: 3
+        Credits: 20
+        Journey Points: 6
+        ********************.
+        Actual:\s""");
         island2.listCurrentPasses();
-        System.out.println("Expected: temp3. Actual: ");
+        System.out.println("""
+        Expected:\s
+        ********************
+        Guest Name: Temp3
+        Pass ID Number: 789
+        Luxury Rating: 8
+        Credits: 5
+        Journey Points: 0
+        ********************.
+        Actual:\s""");
         island3.listCurrentPasses();
         System.out.println("""
-                Expected: \nIsland ID Number: 111,
-                Island name : Haven,
-                Island Rating: 5 ,
-                Island capacity: 2 ,
-                Pass List in Island: temp1
-                Actual:
-                \s""");
+        Expected: \nIsland ID Number: 111,
+        Island name : Haven,
+        Island Rating: 5 ,
+        Island capacity: 2 ,
+        Pass List in Island: temp1
+        Actual:
+        \s""");
         System.out.println(island1);
-        System.out.println("Expected: temp1. Actual: " + island1.getPassDetails(123));
+        System.out.println("Expected: \n********************\n" +
+                "Guest Name: Temp1\n" +
+                "Pass ID Number: 123\n" +
+                "Luxury Rating: 5\n" +
+                "Credits: 10\n" +
+                "Journey Points: 1\n" +
+                "********************.\n Actual: " + island1.getPassDetails(123));
         System.out.println("Expected: true. Actual: " + island1.isPassOnIsland(pass1));
         System.out.println("Expected: false. Actual: " + island1.isPassOnIsland(pass2));
 
@@ -117,7 +150,7 @@ public class BenchTesting {
         island2.enter(pass1);
         System.out.println("Expected: The person with the Pass can't travel to the next Island ( the Pass is not listed in the source island for the ferry)." + " Actual:\n " + ferry5.processPass(pass7, island7, island8));
         island9.enter(pass8);
-        System.out.println("Expected: The person with the Pass can travel to the next Island ( Success )." + " Actual:\n " + ferry6.processPass(pass8, island9, island10));
+        System.out.println("Expected: The person with the Pass can travel to the next Island." + " Actual:\n " + ferry6.processPass(pass8, island9, island10));
         System.out.println("""
          Expected: 
          ********************

@@ -15,7 +15,7 @@ public class Ferry {
     private ArrayList<Pass> passInFerry;
 
     public Ferry(int ferryCode, Island scIsland, Island destinationIsland) {
-       ferryID = ferryCode;
+        ferryID = ferryCode;
         sourceIsland=scIsland ;
         destinationisland = destinationIsland;
         passInFerry = new ArrayList<Pass>();
