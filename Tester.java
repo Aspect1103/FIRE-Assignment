@@ -3,7 +3,8 @@ import java.util.*;
 /**
  * Write a description of class Tester here.
  *
- * @author
+ * @author (Jack)
+ * @version (a version number or a date)
  */
 public class Tester {
     private void doTest() {

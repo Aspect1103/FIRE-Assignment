@@ -1,7 +1,7 @@
 /**
  * Details of your pair
  *
- * @author (your name)
+ * @author (Jack and Klevi)
  * @version (a version number or a date)
  */
 public class Teamwork {
