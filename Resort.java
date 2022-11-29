@@ -1,24 +1,27 @@
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * This class implements the FIRE interface
  *
- * @author A.A.Marczyk
- * @version 05/11/22
+ * @author Jack
+ * @version 29/11/2022
  **/
 public class Resort implements FIRE {
-    private String location;
+    private String resortName;
+    private String resortLocation;
+    private ArrayList<Island> islands;
+    private ArrayList<Ferry> ferries;
+    private ArrayList<Pass> passes;
 
     /**
      * constructor
      * Some code has been provided
      */
-    public Resort(String loc) {
-        location = loc;
+    public Resort(String name, String location) {
+        resortName = name;
+        resortLocation = location;
         loadIslandsAndFerries();
         loadPasses();
-        // Ensure all passes are added to Base Island
-        // you may do this here or in one of the above method
     }
 
     /**

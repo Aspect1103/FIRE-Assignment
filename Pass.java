@@ -2,8 +2,8 @@
  * A Pass has an id number, name, a luxury rating,
  * number of credits and journey points
  *
- * @author (Jack)
- * @version (a version number or a date)
+ * @author Jack
+ * @version 22/11/2022
  */
 public class Pass {
     private int passIdNumber;

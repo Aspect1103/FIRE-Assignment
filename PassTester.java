@@ -1,10 +1,8 @@
-import java.util.*;
-
 /**
- * Write a description of class PassTester here.
+ * Tests the Pass class.
  *
- * @author (Jack)
- * @version (a version number or a date)
+ * @author Jack
+ * @version 22/11/2022
  */
 public class PassTester {
     public static void main(String[] args) {

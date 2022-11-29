@@ -1,8 +1,8 @@
 /**
- * Write a description of class BenchTester here.
+ * Tests the Island, Ferry and Pass classes together.
  *
- * @author (Klevi)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 28/11/2022
  */
 public class BenchTesting {
     public static void main(String[] args) {

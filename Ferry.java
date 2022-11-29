@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * has a ferry code and information about both the source and
  * the destination island
  *
- * @author (Klevi)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 27/11/2022
  */
 public class Ferry {
     private int ferryID;

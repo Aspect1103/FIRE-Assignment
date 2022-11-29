@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 
 /**
@@ -8,8 +8,8 @@ import java.util.*;
  * currently on the island. These lists are updated whenever passes enter or leave
  * an island,so that it is always possible to say which passes are on the island
  *
- * @author (Klevi)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 27/11/2022
  */
 public class Island {
     private int islandID;

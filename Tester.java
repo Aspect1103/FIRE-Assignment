@@ -1,10 +1,10 @@
-import java.util.*;
+import java.util.Scanner;
 
 /**
  * Write a description of class Tester here.
  *
- * @author (Jack)
- * @version (a version number or a date)
+ * @author Jack
+ * @version 20/11/2022
  */
 public class Tester {
     private void doTest() {
