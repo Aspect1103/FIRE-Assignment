@@ -12,12 +12,12 @@ public class Pass {
     private int credits;
     private int journeyPoints;
 
-    public Pass(int passId, String name, int luxury, int credit, int journey) {
+    public Pass(int passId, String name, int luxury, int credit) {
         passIdNumber = passId;
         guestName = name;
         luxuryRating = luxury;
         credits = credit;
-        journeyPoints = journey;
+        journeyPoints = 0;
     }
 
     public int getPassIdNumber() {
@@ -66,10 +66,10 @@ public class Pass {
 
     public String toString() {
         return "********************\nGuest Name: " +
-                guestName + "\nPass ID Number: " +
-                passIdNumber + "\nLuxury Rating: " +
-                luxuryRating + "\nCredits: " +
-                credits + "\nJourney Points: " +
-                journeyPoints + "\n********************";
+                getGuestName() + "\nPass ID Number: " +
+                getPassIdNumber() + "\nLuxury Rating: " +
+                getLuxuryRating() + "\nCredits: " +
+                getCredits() + "\nJourney Points: " +
+                getJourneyPoints() + "\n********************";
     }
 }

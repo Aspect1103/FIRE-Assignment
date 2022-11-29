@@ -19,10 +19,10 @@ public class BenchTesting {
         System.out.println("Expected: 2. Actual: " + island1.getIslandCapacity());
 
         // Create some passes
-        Pass pass1 = new Pass(123, "Temp1", 5, 10, 1);
-        Pass pass2 = new Pass(456, "Temp2", 3, 20, 6);
-        Pass pass3 = new Pass(789, "Temp3", 8, 5, 0);
-        Pass pass4 = new Pass(111, "Temp4", 10, 2, 3);
+        Pass pass1 = new Pass(123, "Temp1", 5, 10);
+        Pass pass2 = new Pass(456, "Temp2", 3, 20);
+        Pass pass3 = new Pass(789, "Temp3", 8, 5);
+        Pass pass4 = new Pass(111, "Temp4", 10, 2);
 
         // Test the methods
         island1.enter(pass1);
@@ -47,7 +47,6 @@ public class BenchTesting {
         Journey Points: 6
         ********************
         Actual:""");
-        island4.listCurrentPasses();
         System.out.println();
         island4.enter(pass2);
         System.out.println("Expected: The island reached the maximum capacity. Actual: " + island4.capacity());
@@ -67,7 +66,6 @@ public class BenchTesting {
         Journey Points: 6
         ********************
         Actual:""");
-        island4.listCurrentPasses();
         System.out.println();
         island4.enter(pass3);
         System.out.println("Expected: The island reached the maximum capacity. Actual: " + island4.capacity());
@@ -87,7 +85,6 @@ public class BenchTesting {
         Journey Points: 6
         ********************
         Actual:""");
-        island4.listCurrentPasses();
         System.out.println();
         island4.leave(pass2);
         System.out.println("Expected: The island has capacity. Actual: " + island4.capacity());
@@ -100,12 +97,10 @@ public class BenchTesting {
         Journey Points: 1
         ********************
         Actual:""");
-        island4.listCurrentPasses();
         System.out.println();
         island4.leave(pass1);
         System.out.println("Expected: The island has capacity. Actual: " + island4.capacity());
         System.out.println("Expected: . Actual:");
-        island4.listCurrentPasses();
         System.out.println();
 
         // Test the accessor
@@ -126,7 +121,6 @@ public class BenchTesting {
         Journey Points: 1
         ********************.
         Actual:\s""");
-        island1.listCurrentPasses();
         System.out.println("""
         Expected:\s
         ********************
@@ -137,7 +131,6 @@ public class BenchTesting {
         Journey Points: 6
         ********************.
         Actual:\s""");
-        island2.listCurrentPasses();
         System.out.println("""
         Expected:\s
         ********************
@@ -148,7 +141,6 @@ public class BenchTesting {
         Journey Points: 0
         ********************.
         Actual:\s""");
-        island3.listCurrentPasses();
         System.out.println("""
         Expected: \nIsland ID Number: 111,
         Island name : Haven,
@@ -178,18 +170,18 @@ public class BenchTesting {
         Island island10 = new Island(412, "two", 2, 2);
         Island sun = new Island(546, "Sun", 2, 2);
         Island moon = new Island(546, "Moon", 2, 2);
-        Ferry ferry1 = new Ferry(1, island1, island2);
-        Ferry ferry2 = new Ferry(2, island2, island3);
-        Ferry ferry3 = new Ferry(3, island3, island4);
-        Ferry ferry4 = new Ferry(5, island6, island7);
-        Ferry ferry5 = new Ferry(5, island7, island8);
-        Ferry ferry6 = new Ferry(5, island9, island10);
-        Ferry titanic = new Ferry(767, sun, moon);
-        Pass pass5 = new Pass(982, "Temp5", 10, 100, 1);
-        Pass pass6 = new Pass(982, "Temp5", 10, 1, 1);
-        Pass pass7 = new Pass(982, "Temp6", 10, 22, 1);
-        Pass pass8 = new Pass(982, "Temp7", 10, 22, 1);
-        Pass vip = new Pass(101, "Rich", 10, 100, 20);
+        Ferry ferry1 = new Ferry("1", island1, island2);
+        Ferry ferry2 = new Ferry("2", island2, island3);
+        Ferry ferry3 = new Ferry("3", island3, island4);
+        Ferry ferry4 = new Ferry("5", island6, island7);
+        Ferry ferry5 = new Ferry("5", island7, island8);
+        Ferry ferry6 = new Ferry("5", island9, island10);
+        Ferry titanic = new Ferry("767", sun, moon);
+        Pass pass5 = new Pass(982, "Temp5", 10, 100);
+        Pass pass6 = new Pass(982, "Temp5", 10, 1);
+        Pass pass7 = new Pass(982, "Temp6", 10, 22);
+        Pass pass8 = new Pass(982, "Temp7", 10, 22);
+        Pass vip = new Pass(101, "Rich", 10, 100);
 
         // Test ferry
         island1.enter(pass1);
@@ -243,7 +235,7 @@ public class BenchTesting {
         island9.enter(pass8);
         System.out.println("Expected: The person with the Pass can travel to the next Island." + " Actual:\n " + ferry6.processPass(pass8, island9, island10));
         System.out.println("""
-         Expected: 
+         Expected:
          ********************
          Ferry ID Number: 767
          Source Island :\s

@@ -7,9 +7,9 @@
 public class PassTester {
     public static void main(String[] args) {
         // Initialise some passes
-        Pass pass1 = new Pass(123, "Temp1", 5, 10, 1);
-        Pass pass2 = new Pass(456, "Temp2", 3, 20, 6);
-        Pass pass3 = new Pass(789, "Temp3", 8, 5, 0);
+        Pass pass1 = new Pass(123, "Temp1", 5, 10);
+        Pass pass2 = new Pass(456, "Temp2", 3, 20);
+        Pass pass3 = new Pass(789, "Temp3", 8, 5);
 
         // Test the accessors
         System.out.println("Expected: 123. Actual: " + pass1.getPassIdNumber());

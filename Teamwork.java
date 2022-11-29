@@ -22,7 +22,7 @@ public class Teamwork {
 
     public void displayDetails() {
         for (String temp : details) {
-            System.out.println(temp.toString());
+            System.out.println(temp);
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class ResortUI {
     private Scanner reader = new Scanner(System.in);
-    private FIRE fortunate = new Resort("Fortunate Islands");
+    private FIRE fortunate = new Resort("Fortunate Islands", "temp location 1");
 
     private void runUI() {
         int choice = getOption();

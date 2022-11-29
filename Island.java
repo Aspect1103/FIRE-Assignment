@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -42,13 +43,20 @@ public class Island {
         return islandCapacity;
     }
 
-    public boolean canPassEnter(Pass temp) {
-        return passList.size() <= islandCapacity;
+    public ArrayList<Pass> getPassList() {
+        return passList;
+    }
+
+    public boolean canPassEnter() {
+        return passList.size() <= getIslandCapacity();
     }
 
     public void enter(Pass temp) {
-        if (passList.size() < islandCapacity) {passList.add(temp);}
+        if (passList.size() < islandCapacity) {
+            passList.add(temp);
+        }
     }
+
     public void leave(Pass temp) {
         passList.remove(temp);
     }
@@ -57,12 +65,6 @@ public class Island {
         if (passList.size() < islandCapacity) {
             return "The island has capacity";
         } else return "The island reached the maximum capacity";
-    }
-
-    public void listCurrentPasses(){
-        for (Pass p : passList) {
-            System.out.println(p);
-        }
     }
 
     public Pass getPassDetails(int id) {
@@ -78,8 +80,17 @@ public class Island {
         return passList.contains(p);
     }
 
+    public boolean isPassOnIsland(int id) {
+        for (Pass pass : passList) {
+            if (pass.getPassIdNumber() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String toString() {
-        return "\n" + "********************\nIsland ID Number: " +
+        return "********************\nIsland ID Number: " +
                 islandID + "\nIsland Name: " +
                 islandName + "\nIsland Rating: " +
                 islandRating + "\nIsland capacity: " +

@@ -18,10 +18,27 @@ public class Resort implements FIRE {
      * Some code has been provided
      */
     public Resort(String name, String location) {
+        // Store some details about the resort
         resortName = name;
         resortLocation = location;
+        islands = new ArrayList<Island>();
+        ferries = new ArrayList<Ferry>();
+        passes = new ArrayList<Pass>();
+
+        // Set up the islands, ferries and passes
         loadIslandsAndFerries();
         loadPasses();
+
+        // Add all the passes to the base island
+        Island base = islands.get(0);
+        for (Pass temp : passes) {
+            base.enter(temp);
+        }
+    }
+
+    public static void main(String[] args) {
+        Resort temp = new Resort("f", "d");
+        System.out.println(temp.viewAPass(1000));
     }
 
     /**
@@ -32,7 +49,10 @@ public class Resort implements FIRE {
      * and all passes currently on each island, or "No passes" if island has no passes
      */
     public String toString() {
-        return "";
+        return "********************\nResort Name: " +
+                resortName + "\nResort Location: " +
+                resortLocation + "\nIsland List: " +
+                islands + "\n********************";
     }
 
     /**
@@ -42,7 +62,17 @@ public class Resort implements FIRE {
      * @return a String representation of all passes on all islands
      **/
     public String getAllPassesOnAllIslands() {
-        return "\nLocation of Passes\n";
+        ArrayList<Pass> allPasses = new ArrayList<Pass>();
+        islands.forEach(island -> allPasses.addAll(island.getPassList()));
+        if (allPasses.size() == 0) {
+            return "No passes";
+        } else {
+            String s = "";
+            for (Pass pass : allPasses) {
+                s += pass + "\n";
+            }
+            return s;
+        }
     }
 
     /**
@@ -52,6 +82,11 @@ public class Resort implements FIRE {
      * @return the name of the Island which contains the pass, or "Not found"
      **/
     public String findPassLocation(int cd) {
+        for (Island island : islands) {
+            if (island.isPassOnIsland(cd)) {
+                return island.getIslandName();
+            }
+        }
         return "Not found";
     }
 
@@ -62,6 +97,12 @@ public class Resort implements FIRE {
      * @return the details of the pass, or "Not found"
      **/
     public String viewAPass(int cd) {
+        for (Island island : islands) {
+            Pass temp = island.getPassDetails(cd);
+            if (temp != null) {
+                return temp.toString();
+            }
+        }
         return "Not found";
     }
 
@@ -145,11 +186,42 @@ public class Resort implements FIRE {
     }
 
     private void loadPasses() {
-
+        // Create the passes and add them to the array list
+        passes.add(new Pass(1000, "Lynn", 5, 10));
+        passes.add(new Pass(1001, "May", 3, 30));
+        passes.add(new Pass(1002, "Nils", 10, 0));
+        passes.add(new Pass(1003, "Olek", 1, 12));
+        passes.add(new Pass(1004, "Pan", 3, 3));
+        passes.add(new Pass(1005, "Quin", 1, 30));
+        passes.add(new Pass(1006, "Raj", 4, 5));
+        passes.add(new Pass(1007, "Sol", 7, 20));
+        passes.add(new Pass(1008, "Tel", 6, 30));
     }
 
     private void loadIslandsAndFerries() {
+        // Create the island
+        Island base = new Island(0, "Base", 0, 100);
+        Island yorkie = new Island(1, "Yorkie", 1, 100);
+        Island bounty = new Island(2, "Bounty", 3, 10);
+        Island twirl = new Island(3, "Twirl", 5, 2);
+        Island aero = new Island(4, "Aero", 1, 1);
 
+        // Add the islands to the array list
+        islands.add(base);
+        islands.add(yorkie);
+        islands.add(bounty);
+        islands.add(twirl);
+        islands.add(aero);
+
+        // Create the ferries and add them to the array list
+        ferries.add(new Ferry("ABC1", base, yorkie));
+        ferries.add(new Ferry("BCD2", yorkie, base));
+        ferries.add(new Ferry("CDE3", yorkie, bounty));
+        ferries.add(new Ferry("DEF4", bounty, yorkie));
+        ferries.add(new Ferry("JKL8", bounty, twirl));
+        ferries.add(new Ferry("EFG5", twirl, yorkie));
+        ferries.add(new Ferry("GHJ6", yorkie, aero));
+        ferries.add(new Ferry("HJK7", aero, yorkie));
     }
 
     /**
@@ -159,6 +231,11 @@ public class Resort implements FIRE {
      * @return the pass with the specified name
      **/
     public Pass getPass(int id) {
+        for (Pass pass : passes) {
+            if (pass.getPassIdNumber() == id) {
+                return pass;
+            }
+        }
         return null;
     }
 
@@ -169,6 +246,11 @@ public class Resort implements FIRE {
      * @return the island with the specified name
      **/
     private Island getIsland(String islandName) {
+        for (Island island: islands) {
+            if (island.getIslandName().equals(islandName)) {
+                return island;
+            }
+        }
         return null;
     }
 
@@ -179,6 +261,11 @@ public class Resort implements FIRE {
      * @return the island with the specified name
      **/
     private Ferry getFerry(String fer) {
+        for (Ferry ferry : ferries) {
+            if (ferry.getFerryCode().equals(fer)) {
+                return ferry;
+            }
+        }
         return null;
     }
 }

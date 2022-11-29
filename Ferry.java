@@ -9,19 +9,17 @@ import java.util.ArrayList;
  * @version 27/11/2022
  */
 public class Ferry {
-    private int ferryID;
+    private String ferryID;
     private Island sourceIsland;
-    private Island destinationisland;
-    private ArrayList<Pass> passInFerry;
+    private Island destinationIsland;
 
-    public Ferry(int ferryCode, Island scIsland, Island destinationIsland) {
+    public Ferry(String ferryCode, Island startIsland, Island endIsland) {
         ferryID = ferryCode;
-        sourceIsland = scIsland;
-        destinationisland = destinationIsland;
-        passInFerry = new ArrayList<Pass>();
+        sourceIsland = startIsland;
+        destinationIsland = endIsland;
     }
 
-    public int getFerryCode() {
+    public String getFerryCode() {
         return ferryID;
     }
 
@@ -30,40 +28,29 @@ public class Ferry {
     }
 
     public Island getDestinationIsland() {
-        return destinationisland;
+        return destinationIsland;
     }
 
-    public boolean canPassTravel(Pass temp) {return temp.getCredits() >= 3;}
+    public boolean canPassTravel(Pass pass) {return pass.getCredits() >= 3;}
 
     public String processPass(Pass pass, Island island1, Island island2) {
         if (pass.getLuxuryRating() < island2.getIslandRating() ||
-            !island1.canPassEnter(pass) ||
+            !island1.canPassEnter() ||
             !canPassTravel(pass) ||
             !island1.isPassOnIsland(pass)) {
-            return "The person with the Pass can't travel to the next Island";
+            return "The person with the pass can't travel to the next island";
         } else {
             island1.leave(pass);
             island2.enter(pass);
-            passInFerry.add(pass);
             pass.useFerry();
-            return "The person with the Pass can travel";
+            return "The person with the pass can travel to the next island";
         }
-    }
-
-    public String listPass() {
-        String s = "";
-        for (Pass p : passInFerry) {
-            s += p.toString() + "\n";
-        }
-        return s;
     }
 
     public String toString() {
-        return "\n" + "********************\nFerry ID Number: " +
-                ferryID + "\nSource Island : " +
-                getSourceIsland() + "\nDestination Island : " +
-                getDestinationIsland() + "\nPass List in Ferry: " + "\n" +
-                listPass() + "\n********************";
+        return "********************\nFerry ID Number: " +
+                ferryID + "\nSource Island: " +
+                getSourceIsland() + "\nDestination Island: " +
+                getDestinationIsland() + "\n********************";
     }
-
 }

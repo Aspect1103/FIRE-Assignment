@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Tester {
     private void doTest() {
-        FIRE fortunate = new Resort("Fortunate Islands");
+        FIRE fortunate = new Resort("Fortunate Islands", "temp location 2");
         Scanner enter = new Scanner(System.in);
     }
 
