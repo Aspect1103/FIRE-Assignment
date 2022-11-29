@@ -36,11 +36,6 @@ public class Resort implements FIRE {
         }
     }
 
-    public static void main(String[] args) {
-        Resort temp = new Resort("f", "d");
-        System.out.println(temp.viewAPass(1000));
-    }
-
     /**
      * Returns information about the resort including its location/name and all
      * passes currently on each island, or "No passes" (if no pass on that island
@@ -114,6 +109,11 @@ public class Resort implements FIRE {
      * @return id number of island
      */
     public int getIslandNumber(String isl) {
+        for (Island island : islands) {
+            if (island.getIslandName().equals(isl)) {
+                return island.getIslandNumber();
+            }
+        }
         return -1;
     }
 
@@ -124,7 +124,17 @@ public class Resort implements FIRE {
      * @return a String representation of all passes on specified island
      **/
     public String getAllPassesOnIsland(String isl) {
-        return "\nPasses on \n";
+        int targetInd = getIslandNumber(isl);
+        if (targetInd == -1) {
+            return "";
+        } else {
+            String s = "";
+            Island target = islands.get(targetInd);
+            for (Pass pass : target.getPassList()) {
+                s += pass + "\n";
+            }
+            return s;
+        }
     }
 
     /**
@@ -141,7 +151,14 @@ public class Resort implements FIRE {
      * @return true if the pass is allowed on the ferry journey, false otherwise
      **/
     public boolean canTravel(int cdId, String ferCode) {
-        return false;
+        Ferry ferry = getFerry(ferCode);
+        Pass pass = getPass(cdId);
+        return ferry != null &&
+                pass != null &&
+                pass.getLuxuryRating() >= ferry.getDestinationIsland().getIslandRating() &&
+                ferry.getDestinationIsland().canPassEnter() &&
+                ferry.canPassTravel(pass) &&
+                ferry.getSourceIsland().isPassOnIsland(pass);
     }
 
     /**
@@ -162,8 +179,13 @@ public class Resort implements FIRE {
      * @param ferCode is the code of the ferry by which the pass wants to travel
      * @return a String giving the result of the request
      **/
-    public String travel(int pPassId, String ferCode) {   //other checks optional
-        return "";
+    public String travel(int pPassId, String ferCode) {
+        Pass pass = getPass(pPassId);
+        Ferry ferry = getFerry(ferCode);
+        if (pass != null && ferry != null) {
+            return ferry.processPass(pass, getIsland(findPassLocation(pPassId)), ferry.getDestinationIsland());
+        }
+        return "Invalid pass or ferry code";
     }
 
     /**
@@ -173,7 +195,10 @@ public class Resort implements FIRE {
      * @param creds the number of credits to be added to pass
      */
     public void topUpCredits(int id, int creds) {
-
+        Pass pass = getPass(id);
+        if (pass != null) {
+            pass.addCredits(creds);
+        }
     }
 
     /**
@@ -182,7 +207,10 @@ public class Resort implements FIRE {
      * @param id the id of the pass whose points are to be converted
      */
     public void convertPoints(int id) {
-
+        Pass pass = getPass(id);
+        if (pass != null) {
+            pass.journeyPointsToCredits();
+        }
     }
 
     private void loadPasses() {

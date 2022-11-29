@@ -34,16 +34,19 @@ public class Ferry {
     public boolean canPassTravel(Pass pass) {return pass.getCredits() >= 3;}
 
     public String processPass(Pass pass, Island island1, Island island2) {
-        if (pass.getLuxuryRating() < island2.getIslandRating() ||
-            !island1.canPassEnter() ||
-            !canPassTravel(pass) ||
-            !island1.isPassOnIsland(pass)) {
-            return "The person with the pass can't travel to the next island";
+        if (pass.getLuxuryRating() < island2.getIslandRating()) {
+            return "The pass has a lower luxury rating than the destination island";
+        } else if (!island1.canPassEnter()) {
+            return "The destination island has reached capacity";
+        } else if (!canPassTravel(pass)) {
+            return "The pass does not have enough credits to travel";
+        } else if (!island1.isPassOnIsland(pass)) {
+            return "The person is not on the source island";
         } else {
             island1.leave(pass);
             island2.enter(pass);
             pass.useFerry();
-            return "The person with the pass can travel to the next island";
+            return "The person can travel to the next island";
         }
     }
 

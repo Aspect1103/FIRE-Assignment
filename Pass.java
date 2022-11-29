@@ -58,10 +58,9 @@ public class Pass {
     }
 
     public void journeyPointsToCredits() {
-        if (journeyPoints >= 5) {
-            journeyPoints -= 5;
-            credits += 1;
-        }
+        int newCredits = getJourneyPoints() / 5;
+        credits += newCredits;
+        journeyPoints -= newCredits * 5;
     }
 
     public String toString() {
