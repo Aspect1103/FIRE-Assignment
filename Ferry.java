@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * A ferry provides a one-way journey between two islands. It
  * has a ferry code and information about both the source and
@@ -52,8 +50,8 @@ public class Ferry {
 
     public String toString() {
         return "********************\nFerry ID Number: " +
-                ferryID + "\nSource Island: " +
-                getSourceIsland() + "\nDestination Island: " +
+                ferryID + "\nSource Island: " + "\n" +
+                getSourceIsland() + "\n\nDestination Island: " + "\n" +
                 getDestinationIsland() + "\n********************";
     }
 }

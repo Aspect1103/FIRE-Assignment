@@ -1,13 +1,11 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-
 /**
- * An island is part of a FIRE resort.Each island has a name,  a luxury rating
+ * An island is part of a FIRE resort. Each island has a name, a luxury rating
  * and a capacity which represents the maximum number of people(passes) who can be on the
  * island at any one time. Each island must maintain a list of all people (passes)
  * currently on the island. These lists are updated whenever passes enter or leave
- * an island,so that it is always possible to say which passes are on the island
+ * an island, so that it is always possible to say which passes are on the island
  *
  * @author Klevi
  * @version 27/11/2022
@@ -61,10 +59,16 @@ public class Island {
         passList.remove(temp);
     }
 
-    public String capacity() {
+    public String hasSpace() {
         if (passList.size() < islandCapacity) {
             return "The island has capacity";
         } else return "The island reached the maximum capacity";
+    }
+
+    public void listCurrentPasses(){
+        for (Pass pass : passList) {
+            System.out.println(pass);
+        }
     }
 
     public Pass getPassDetails(int id) {
@@ -94,8 +98,7 @@ public class Island {
                 islandID + "\nIsland Name: " +
                 islandName + "\nIsland Rating: " +
                 islandRating + "\nIsland capacity: " +
-                islandCapacity + "\nPass List in Island: " + "\n" +
+                islandCapacity + "\nPass List in Island:\n" +
                 passList + "\n********************";
     }
 }
-
