@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * Write a description of class ResortUI here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 1/12/2022
  */
 public class ResortUI {
     private Scanner reader = new Scanner(System.in);
@@ -33,11 +33,10 @@ public class ResortUI {
                 convertPts();
             }
 
-            // output menu & get choice
-
+            // Output menu and get choice
             choice = getOption();
         }
-        System.out.println("\nThank-you");
+        System.out.println("\nThank you");
     }
 
     private int getOption() {
@@ -51,10 +50,10 @@ public class ResortUI {
         System.out.println("6. Move a pass by ferry");
         System.out.println("7. View pass");
         System.out.println("8. Top up credits");
-        System.out.println("9. Convert points to credits ");
+        System.out.println("9. Convert points to credits");
+        System.out.println("Enter your choice:");
 
-        System.out.println("Enter your choice");
-        // read choice
+        // Read choice
         int option = reader.nextInt();
         reader.nextLine();
         return option;
@@ -65,19 +64,21 @@ public class ResortUI {
         System.out.println(fortunate.toString());
     }
 
-    // provide the code here  
+    // Provide the code here
     private void listAllPasses() {
-
+        System.out.println(fortunate.getAllPassesOnAllIslands());
     }
 
-    // provide the code here 
+    // Provide the code here
     private void listOneIsland() {
-
+        System.out.println("Enter island name:");
+        String islandName = reader.next();
+        System.out.println(fortunate.getAllPassesOnIsland(islandName));
     }
 
     // This one has been done for you
     private void findLocationOfPass() {
-        System.out.println("Enter pass id");
+        System.out.println("Enter pass id:");
         int trav = reader.nextInt();
         String ww = fortunate.findPassLocation(trav);
         if (ww != null) {
@@ -89,40 +90,49 @@ public class ResortUI {
 
     // This one has been done for you 
     private void tryTravel() {
-        System.out.println("Enter pass id");
+        System.out.println("Enter pass id:");
         int trav = reader.nextInt();
         reader.nextLine();
-        System.out.println("Enter ferry code");
+        System.out.println("Enter ferry code:");
         String ferry = reader.nextLine();
         System.out.println(fortunate.canTravel(trav, ferry));
     }
 
-    // provide the code here
+    // Provide the code here
     private void travelNow() {
-
+        System.out.println("Enter pass id:");
+        int trav = reader.nextInt();
+        reader.nextLine();
+        System.out.println("Enter ferry code:");
+        String ferry = reader.nextLine();
+        System.out.println(fortunate.travel(trav, ferry));
     }
 
     // This one has been done for you
     private void viewPass() {
-        System.out.println("Enter pass ID number");
+        System.out.println("Enter pass ID number:");
         int cId = reader.nextInt();
         System.out.println(fortunate.viewAPass(cId));
     }
 
-    // provide the code here
+    // Provide the code here
     private void updateCredits() {
-
+        System.out.println("Please enter the id of the pass toping up their credits:");
+        int passId = reader.nextInt();
+        System.out.println("Please enter the number of credits to be added:");
+        int credits = reader.nextInt();
+        fortunate.topUpCredits(passId, credits);
     }
 
     // This one has been done for you
     private void convertPts() {
-        System.out.println("Enter pass ID number");
+        System.out.println("Enter pass ID number:");
         int cId = reader.nextInt();
         fortunate.convertPoints(cId);
     }
 
     public static void main(String[] args) {
-        ResortUI xx = new ResortUI();
-        xx.runUI();
+        ResortUI resortTemp = new ResortUI();
+        resortTemp.runUI();
     }
 }
