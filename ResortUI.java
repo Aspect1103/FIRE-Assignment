@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Write a description of class ResortUI here.
  *
- * @author (your name)
+ * @author (Klevi)
  * @version (a version number or a date)
  */
 public class ResortUI {
@@ -67,12 +67,14 @@ public class ResortUI {
 
     // provide the code here  
     private void listAllPasses() {
-
+        System.out.println(fortunate.getAllPassesOnAllIslands());
     }
 
     // provide the code here 
     private void listOneIsland() {
-
+        System.out.println("Enter island name");
+        String islandName = reader.next();
+        System.out.println(fortunate.getAllPassesOnIsland(islandName));
     }
 
     // This one has been done for you
@@ -99,7 +101,12 @@ public class ResortUI {
 
     // provide the code here
     private void travelNow() {
-
+        System.out.println("Enter pass id");
+        int trav = reader.nextInt();
+        reader.nextLine();
+        System.out.println("Enter ferry code");
+        String ferry = reader.nextLine();
+        System.out.println(fortunate.travel(trav, ferry));
     }
 
     // This one has been done for you
@@ -111,7 +118,11 @@ public class ResortUI {
 
     // provide the code here
     private void updateCredits() {
-
+        System.out.println("Please enter the id of the pass toping up their credits");
+        int passId= reader.nextInt();
+        System.out.println("Please enter the number of credits to be added");
+        int credits = reader.nextInt();
+        fortunate.topUpCredits(passId,credits);
     }
 
     // This one has been done for you

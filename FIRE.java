@@ -104,5 +104,4 @@ public interface FIRE {
      * @param id the id of the pass whose points are to be converted
      */
     public void convertPoints(int id);
-
 }
