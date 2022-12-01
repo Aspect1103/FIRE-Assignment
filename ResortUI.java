@@ -33,15 +33,14 @@ public class ResortUI {
                 convertPts();
             }
 
-            // output menu & get choice
-
+            // Output menu and get choice
             choice = getOption();
         }
-        System.out.println("\nThank-you");
+        System.out.println("\nThank you");
     }
 
     private int getOption() {
-        System.out.println("What would you like to do ?");
+        System.out.println("What would you like to do?");
         System.out.println("0. Quit");
         System.out.println("1. List all resort details");
         System.out.println("2. List all passes on all islands");
@@ -51,10 +50,9 @@ public class ResortUI {
         System.out.println("6. Move a pass by ferry");
         System.out.println("7. View pass");
         System.out.println("8. Top up credits");
-        System.out.println("9. Convert points to credits ");
-
+        System.out.println("9. Convert points to credits");
         System.out.println("Enter your choice");
-        // read choice
+        // Read choice
         int option = reader.nextInt();
         reader.nextLine();
         return option;
@@ -65,12 +63,12 @@ public class ResortUI {
         System.out.println(fortunate.toString());
     }
 
-    // provide the code here  
+    // Provide the code here
     private void listAllPasses() {
         System.out.println(fortunate.getAllPassesOnAllIslands());
     }
 
-    // provide the code here 
+    // Provide the code here
     private void listOneIsland() {
         System.out.println("Enter island name");
         String islandName = reader.next();
@@ -99,7 +97,7 @@ public class ResortUI {
         System.out.println(fortunate.canTravel(trav, ferry));
     }
 
-    // provide the code here
+    // Provide the code here
     private void travelNow() {
         System.out.println("Enter pass id");
         int trav = reader.nextInt();
@@ -116,7 +114,7 @@ public class ResortUI {
         System.out.println(fortunate.viewAPass(cId));
     }
 
-    // provide the code here
+    // Provide the code here
     private void updateCredits() {
         System.out.println("Please enter the id of the pass toping up their credits");
         int passId= reader.nextInt();
@@ -133,7 +131,7 @@ public class ResortUI {
     }
 
     public static void main(String[] args) {
-        ResortUI xx = new ResortUI();
-        xx.runUI();
+        ResortUI resort = new ResortUI();
+        resort.runUI();
     }
 }
