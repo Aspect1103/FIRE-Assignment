@@ -1,8 +1,8 @@
 /**
  * Details of your pair
  *
- * @author (Jack and Klevi)
- * @version (a version number or a date)
+ * @author Jack and Klevi
+ * @version 21/11/2022
  */
 public class Teamwork {
     private String[] details = new String[6];
@@ -22,7 +22,7 @@ public class Teamwork {
 
     public void displayDetails() {
         for (String temp : details) {
-            System.out.println(temp.toString());
+            System.out.println(temp);
         }
     }
 }

@@ -1,27 +1,23 @@
-import java.util.ArrayList;
-
 /**
  * A ferry provides a one-way journey between two islands. It
  * has a ferry code and information about both the source and
  * the destination island
  *
- * @author (Klevi)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 27/11/2022
  */
 public class Ferry {
-    private int ferryID;
+    private String ferryID;
     private Island sourceIsland;
-    private Island destinationisland;
-    private ArrayList<Pass> passInFerry;
+    private Island destinationIsland;
 
-    public Ferry(int ferryCode, Island scIsland, Island destinationIsland) {
+    public Ferry(String ferryCode, Island startIsland, Island endIsland) {
         ferryID = ferryCode;
-        sourceIsland = scIsland;
-        destinationisland = destinationIsland;
-        passInFerry = new ArrayList<Pass>();
+        sourceIsland = startIsland;
+        destinationIsland = endIsland;
     }
 
-    public int getFerryCode() {
+    public String getFerryCode() {
         return ferryID;
     }
 
@@ -30,40 +26,32 @@ public class Ferry {
     }
 
     public Island getDestinationIsland() {
-        return destinationisland;
+        return destinationIsland;
     }
 
-    public boolean canPassTravel(Pass temp) {return temp.getCredits() >= 3;}
+    public boolean canPassTravel(Pass pass) {return pass.getCredits() >= 3;}
 
     public String processPass(Pass pass, Island island1, Island island2) {
-        if (pass.getLuxuryRating() < island2.getIslandRating() ||
-            !island1.canPassEnter(pass) ||
-            !canPassTravel(pass) ||
-            !island1.isPassOnIsland(pass)) {
-            return "The person with the Pass can't travel to the next Island";
+        if (pass.getLuxuryRating() < island2.getIslandRating()) {
+            return "The pass has a lower luxury rating than the destination island";
+        } else if (!island1.canPassEnter()) {
+            return "The destination island has reached capacity";
+        } else if (!canPassTravel(pass)) {
+            return "The pass does not have enough credits to travel";
+        } else if (!island1.isPassOnIsland(pass)) {
+            return "The person is not on the source island";
         } else {
             island1.leave(pass);
             island2.enter(pass);
-            passInFerry.add(pass);
             pass.useFerry();
-            return "The person with the Pass can travel";
+            return "The person can travel to the next island";
         }
-    }
-
-    public String listPass() {
-        String s = "";
-        for (Pass p : passInFerry) {
-            s += p.toString() + "\n";
-        }
-        return s;
     }
 
     public String toString() {
-        return "\n" + "********************\nFerry ID Number: " +
-                ferryID + "\nSource Island : " +
-                getSourceIsland() + "\nDestination Island : " +
-                getDestinationIsland() + "\nPass List in Ferry: " + "\n" +
-                listPass() + "\n********************";
+        return "********************\nFerry ID Number: " +
+                ferryID + "\nSource Island: " + "\n" +
+                getSourceIsland() + "\n\nDestination Island: " + "\n" +
+                getDestinationIsland() + "\n********************";
     }
-
 }

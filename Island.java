@@ -1,15 +1,14 @@
-import java.util.*;
-
+import java.util.ArrayList;
 
 /**
- * An island is part of a FIRE resort.Each island has a name,  a luxury rating
+ * An island is part of a FIRE resort. Each island has a name, a luxury rating
  * and a capacity which represents the maximum number of people(passes) who can be on the
  * island at any one time. Each island must maintain a list of all people (passes)
  * currently on the island. These lists are updated whenever passes enter or leave
- * an island,so that it is always possible to say which passes are on the island
+ * an island, so that it is always possible to say which passes are on the island
  *
- * @author (Klevi)
- * @version (a version number or a date)
+ * @author Klevi
+ * @version 27/11/2022
  */
 public class Island {
     private int islandID;
@@ -42,26 +41,33 @@ public class Island {
         return islandCapacity;
     }
 
-    public boolean canPassEnter(Pass temp) {
-        return passList.size() <= islandCapacity;
+    public ArrayList<Pass> getPassList() {
+        return passList;
+    }
+
+    public boolean canPassEnter() {
+        return passList.size() <= getIslandCapacity();
     }
 
     public void enter(Pass temp) {
-        if (passList.size() < islandCapacity) {passList.add(temp);}
+        if (passList.size() < islandCapacity) {
+            passList.add(temp);
+        }
     }
+
     public void leave(Pass temp) {
         passList.remove(temp);
     }
 
-    public String capacity() {
+    public String hasSpace() {
         if (passList.size() < islandCapacity) {
             return "The island has capacity";
         } else return "The island reached the maximum capacity";
     }
 
     public void listCurrentPasses(){
-        for (Pass p : passList) {
-            System.out.println(p);
+        for (Pass pass : passList) {
+            System.out.println(pass);
         }
     }
 
@@ -78,13 +84,21 @@ public class Island {
         return passList.contains(p);
     }
 
+    public boolean isPassOnIsland(int id) {
+        for (Pass pass : passList) {
+            if (pass.getPassIdNumber() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String toString() {
-        return "\n" + "********************\nIsland ID Number: " +
+        return "********************\nIsland ID Number: " +
                 islandID + "\nIsland Name: " +
                 islandName + "\nIsland Rating: " +
                 islandRating + "\nIsland capacity: " +
-                islandCapacity + "\nPass List in Island: " + "\n" +
+                islandCapacity + "\nPass List in Island:\n" +
                 passList + "\n********************";
     }
 }
-
