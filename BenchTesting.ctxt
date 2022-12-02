@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=BenchTesting
+comment0.text=\r\n\ Tests\ the\ Island\ and\ Ferry\ classes.\r\n\r\n\ @author\ Klevi\r\n\ @version\ 28/11/2022\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Runs\ the\ BenchTester\ class.\r\n\r\n\ @param\ args\ The\ command\ line\ arguments.\r\n
+numComments=2
