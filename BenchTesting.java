@@ -5,6 +5,11 @@
  * @version 28/11/2022
  */
 public class BenchTesting {
+    /**
+     * Runs the BenchTester class.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         // Initialise some islands and ferries
         Island island1 = new Island(111, "Haven", 5, 2);
@@ -18,7 +23,7 @@ public class BenchTesting {
         Pass pass = new Pass(1, "temp", 5, 20);
 
         // Test the island accessors
-        System.out.println("Expected: 111. Actual: " + island1.getIslandNumber());
+        System.out.println("Expected: 111. Actual: " + island1.getIslandID());
         System.out.println("Expected: Sweetfish. Actual: " + island2.getIslandName());
         System.out.println("Expected: 2. Actual: " + island3.getIslandRating());
         System.out.println("Expected: 2. Actual: " + island1.getIslandCapacity());
@@ -55,6 +60,8 @@ public class BenchTesting {
         System.out.println("Expected: 1. Actual: " + island1.getPassList().size() + "\n");
         island1.leave(pass);
         System.out.println("Expected: 0. Actual: " + island1.getPassList().size() + "\n");
+
+        System.out.println("Expected: true. Actual: " + island1.hasSpace() + "\n");
 
         island1.enter(pass);
         System.out.println("""

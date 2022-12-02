@@ -5,6 +5,11 @@
  * @version 22/11/2022
  */
 public class PassTester {
+    /**
+     * Runs the PassTester class.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         // Initialise some passes
         Pass pass1 = new Pass(123, "Temp1", 5, 10);
