@@ -34,7 +34,7 @@ public class Ferry {
     public String processPass(Pass pass, Island island1, Island island2) {
         if (pass.getLuxuryRating() < island2.getIslandRating()) {
             return "The pass has a lower luxury rating than the destination island";
-        } else if (!island1.canPassEnter()) {
+        } else if (!island2.canPassEnter()) {
             return "The destination island has reached capacity";
         } else if (!canPassTravel(pass)) {
             return "The pass does not have enough credits to travel";

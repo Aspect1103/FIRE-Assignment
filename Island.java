@@ -25,7 +25,7 @@ public class Island {
         passList = new ArrayList<Pass>(islandCapacity);
     }
 
-    public int getIslandNumber() {
+    public int getIslandID() {
         return islandID;
     }
 
@@ -46,7 +46,7 @@ public class Island {
     }
 
     public boolean canPassEnter() {
-        return passList.size() <= getIslandCapacity();
+        return passList.size() < islandCapacity;
     }
 
     public void enter(Pass temp) {

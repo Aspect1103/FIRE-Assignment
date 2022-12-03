@@ -18,7 +18,7 @@ public class BenchTesting {
         Pass pass = new Pass(1, "temp", 5, 20);
 
         // Test the island accessors
-        System.out.println("Expected: 111. Actual: " + island1.getIslandNumber());
+        System.out.println("Expected: 111. Actual: " + island1.getIslandID());
         System.out.println("Expected: Sweetfish. Actual: " + island2.getIslandName());
         System.out.println("Expected: 2. Actual: " + island3.getIslandRating());
         System.out.println("Expected: 2. Actual: " + island1.getIslandCapacity());

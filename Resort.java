@@ -82,7 +82,7 @@ public class Resort implements FIRE {
                 return island.getIslandName();
             }
         }
-        return "Not found";
+        return null;
     }
 
     /**
@@ -111,7 +111,7 @@ public class Resort implements FIRE {
     public int getIslandNumber(String isl) {
         for (Island island : islands) {
             if (island.getIslandName().equals(isl)) {
-                return island.getIslandNumber();
+                return island.getIslandID();
             }
         }
         return -1;
@@ -183,7 +183,7 @@ public class Resort implements FIRE {
         Pass pass = getPass(pPassId);
         Ferry ferry = getFerry(ferCode);
         if (pass != null && ferry != null) {
-            return ferry.processPass(pass, getIsland(findPassLocation(pPassId)), ferry.getDestinationIsland());
+            return ferry.processPass(pass,ferry.getSourceIsland(), ferry.getDestinationIsland());
         }
         return "Invalid pass or ferry code";
     }

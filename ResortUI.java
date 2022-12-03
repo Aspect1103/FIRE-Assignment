@@ -105,7 +105,7 @@ public class ResortUI {
         reader.nextLine();
         System.out.println("Enter ferry code:");
         String ferry = reader.nextLine();
-        System.out.println(fortunate.travel(trav, ferry));
+            System.out.println(fortunate.travel(trav, ferry));
     }
 
     // This one has been done for you
@@ -117,7 +117,7 @@ public class ResortUI {
 
     // Provide the code here
     private void updateCredits() {
-        System.out.println("Please enter the id of the pass toping up their credits:");
+        System.out.println("Please enter the id of the pass topping up their credits:");
         int passId = reader.nextInt();
         System.out.println("Please enter the number of credits to be added:");
         int credits = reader.nextInt();
