@@ -257,9 +257,7 @@ public class Tester {
                     Expected: Base
                     Actual:"""+ww+"\n");
         } else {
-            System.out.println("""
-                    Expected: Base
-                    Actual: No such pass"""+"\n");
+            System.out.println("No such pass"+"\n");
         }
         System.out.println("(False version option 4) Enter pass id:(111)");
         int travel = enter.nextInt();
@@ -267,9 +265,7 @@ public class Tester {
         if (www != null) {
             System.out.println(www);
         } else {
-            System.out.println("""
-                    Expected: Base
-                    Actual: No such pass"""+"\n");        }
+            System.out.println("No such pass"+"\n");        }
         //        Testing option 5-> Say if pass can move by ferry
         System.out.println("(True Version, option 5) Enter pass id:(1000)");
         int trav1 = enter.nextInt();

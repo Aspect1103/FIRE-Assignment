@@ -105,7 +105,7 @@ public class ResortUI {
         reader.nextLine();
         System.out.println("Enter ferry code:");
         String ferry = reader.nextLine();
-            System.out.println(fortunate.travel(trav, ferry));
+        System.out.println(fortunate.travel(trav, ferry));
     }
 
     // This one has been done for you
