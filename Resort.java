@@ -183,7 +183,7 @@ public class Resort implements FIRE {
         Pass pass = getPass(pPassId);
         Ferry ferry = getFerry(ferCode);
         if (pass != null && ferry != null) {
-            return ferry.processPass(pass,ferry.getSourceIsland(), ferry.getDestinationIsland());
+            return ferry.processPass(pass, ferry.getSourceIsland(), ferry.getDestinationIsland());
         }
         return "Invalid pass or ferry code";
     }
