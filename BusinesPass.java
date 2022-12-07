@@ -1,6 +1,6 @@
-public class BusinessPass extends Pass{
+public class BusinesPass extends Pass{
 private int loyaltyPoints;
-    public BusinessPass(int passId, String name, int luxury, int credit,int loyaltyPoints){
+    public BusinesPass(int passId, String name, int luxury, int credit,int loyaltyPoints){
         super(passId,name,luxury,credit);
         this.loyaltyPoints=loyaltyPoints;
     }
