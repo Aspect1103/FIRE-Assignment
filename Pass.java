@@ -71,5 +71,4 @@ public class Pass {
                 getCredits() + "\nJourney Points: " +
                 getJourneyPoints() + "\n********************";
     }
-    public void setJourneyPoints(int points){journeyPoints+=points;}
 }

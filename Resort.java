@@ -224,10 +224,9 @@ public class Resort implements FIRE {
         passes.add(new Pass(1006, "Raj", 4, 5));
         passes.add(new Pass(1007, "Sol", 7, 20));
         passes.add(new Pass(1008, "Tel", 6, 30));
-
-        passes.add(new TouristPass(3,"Killjoy",10,10,"Ukraine"));
-        passes.add(new BusinessPass(11,"Neon",10,30,20));
-        passes.add(new EmployeePass(321,"Omen",10,2,2133,"Cleaner",0));
+        passes.add(new TouristPass(3,"Bill",10,10,"Ukraine"));
+        passes.add(new BusinessPass(11,"Anna",10));
+        passes.add(new EmployeePass(321,"Henry",10,"Cleaner",2));
     }
 
     private void loadIslandsAndFerries() {
