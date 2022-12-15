@@ -1,6 +1,4 @@
 import java.util.Objects;
-import java.util.Scanner;
-
 /**
  * Write a description of class Tester here.
  *
@@ -9,15 +7,21 @@ import java.util.Scanner;
  */
 public class Tester {
     private void doTest() {
-        FIRE wayward = new Resort("Wayward Islands Resort", "temp location 2");
+        FIRE wayward = new Resort("Wayward Islands Resort", "The Caribbean");
 
-        //Testing option 1
+        // Testing option 1
+        System.out.println("Option 1, List all resort details\n");
+        System.out.println("""
+                This option will display all of the details of the current resort
+                that are Resort Name, Resort Location, Island List and all pass details that 
+                are staying in each island.
+                """);
         System.out.println("""
                 Testing option 1,
                 Expected:
                 ********************
                 Resort Name: Wayward Islands Resort
-                Resort Location: temp location 2
+                Resort Location: The Caribbean
                 Island List: [********************
                 Island ID Number: 0
                 Island Name: Base
@@ -112,7 +116,12 @@ public class Tester {
                 Actual:
                 """ + wayward + "\n");
 
-        //Testing option 2
+        // Testing option 2
+        System.out.println("Option 2, List all passes on all islands\n");
+        System.out.println("""
+                This option will display the details of current passes
+                residing on all islands.
+                """);
         System.out.println("""
                 Testing option 2,
                 Expected:
@@ -178,20 +187,21 @@ public class Tester {
                 Luxury Rating: 6
                 Credits: 30
                 Journey Points: 0
-                ******************** 
+                ********************
                 Actual:
                 """+  wayward.getAllPassesOnAllIslands() + "\n");
 
-        //Testing option 3 List all passes on one Island
-        System.out.println("Option 3, List all passes on one island in this case, island name: (Base)\n");
-        System.out.println(
-               """
+        // Testing option 3
+        System.out.println("Option 3, List all passes on one island in this case - island name: (Base)\n");
+        System.out.println("""
                This option will display all of the details of current passes that are currently
                residing on an island. In order for this option to function properly,
                you must specify one of the five islands that are: Base, Yorkie, Bounty, Twirl, and Aero.
+               The tests:
+                1. Valid - Island Name Base.
+                2. Invalid - Island Name Miami.
                """);
-        System.out.println(
-                """
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: Lynn
@@ -258,95 +268,95 @@ public class Tester {
                 ********************
                 Actual:
                 """ + wayward.getAllPassesOnIsland("Base") + "\n");
-
-        //Testing option 4-> Find location of a pass
-        System.out.println("Option 4 (valid) - Pass ID: 1006\n");
-        System.out.println(
-               """
-               If you provide the right pass id, the software will return the current
-               island where a pass is located. If you enter the incorrect pass id,
-               the application will indicate that there is no such pass.
-               """);
-        String ww = wayward.findPassLocation(1006);
-        if (ww != null) {
-            System.out.println("""
+        System.out.println("""
+                Expected:
+                The island doesn't exist
+                Actual:
+                """ + wayward.getAllPassesOnIsland("Miami") + "\n");
+        // Testing option 4
+        System.out.println("Option 4 (valid), Find location of a pass - Pass ID: 1006\n");
+        System.out.println("""
+                If you provide a valid pass ID, the pass is current island will be returned.
+                But if an invalid pass ID is provided, null will be returned.
+                The tests:
+                1. Valid - Pass ID 1006.
+                2. Invalid - Pass ID 111.
+                """);
+        System.out.println("""
                     Expected: Base
-                    Actual:"""+ww+"\n");
-        } else {System.out.println("No such pass"+"\n");}
+                    Actual:""" + wayward.findPassLocation(1006) + "\n");
         System.out.println("Option 4 (invalid) - Pass ID: 111");
-        String www = wayward.findPassLocation(111);
-        System.out.println(Objects.requireNonNullElse(www, "No such pass" + "\n"));
+        System.out.println("""
+                    Expected: null
+                    Actual:""" + wayward.findPassLocation(111) + "\n");
 
-        //Testing option 5-> Say if pass can move by ferry
-        System.out.println("Option 5 (valid) - Pass id: 1000\n");
-        System.out.println(
-               """
-               For this option to operate correctly, you must enter the right pass id,
-               and it will inform you whether that pass can afford to take a ferry to an
-               island in the format of True or False.
-               """);
+        // Testing option 5
+        System.out.println("Option 5 (valid), Checking if pass can move by ferry - Pass id: 1000\n");
+        System.out.println("""
+                If a valid pass and ferry is provided and the conditions are met,true is returned. 
+                Otherwise, false is returned.             
+                The tests:
+                1. Valid - Pass ID 1000, Ferry Code ABC1.                   
+                2. Invalid - Pass ID 1002, Ferry Code ABC1.                   
+                """);
         System.out.println("Ferry code: ABC1");
         System.out.println("Expected: true. Actual:" + wayward.canTravel(1000, "ABC1") + "\n");
         System.out.println("Option 5 (invalid) - Pass id: 1002\n");
         System.out.println("Ferry code: ABC1");
         System.out.println("Expected: false. Actual:" + wayward.canTravel(1002, "ABC1") + "\n");
 
-        //Testing option 6-> Move a pass by ferry
-        System.out.println("Option 6 (valid) - Pass id: 1005\n");
-        System.out.println(
-               """
-               For this option to work properly, you must enter a valid pass id number and a valid ferry code.
-               This means that for the pass to successfully move to an island, the pass's location should be the
-               source island also with ferry, the pass must have credits to use the ferry, his luxury rating must
-               be the same or higher than the destination island, and the destination island must have capacity to
-               accept the pass. If everything said above is true, a message will appear stating,
-               "The person can travel to the next island."
-               """);
-        System.out.println("Ferry code: ABC1");
+        // Testing option 6
+        System.out.println("Option 6 (valid), Moving a pass by ferry - Pass id: 1005\n");
+        System.out.println("""
+                If a valid pass and ferry code are provided, then the system will check
+                the following conditions:
+                • The pass location is on the ferry’s source island.
+                • The pass has sufficient credits to travel.
+                • The pass's luxury rating is the same or higher than the ferry's destination island.
+                • The ferry's destination island has sufficient capacity.
+                If all the conditions are met, then the pass is allowed to travel.
+                Otherwise, the reason is returned.
+                The tests:
+                1. Valid - Pass ID 1005, Ferry Code ABC1.
+                2. Invalid - Pass ID 21, Ferry Code 21.
+                3. Invalid - Pass ID 1005, Ferry Code CDE3.
+                4. Invalid - Pass ID 1005, Ferry Code GHJ6
+                5. Invalid - Pass ID 1002, Ferry Code ABC1.
+                6. Invalid - Pass ID 1001, Ferry Code ABC1.
+                """);
         System.out.println("Expected: The person can travel to the next island. Actual:" + wayward.travel(1005, "ABC1") + "\n");
-        System.out.println("Moving down we will test all the false version of option 6 and they results");
         System.out.println("Option 6 (invalid) - Inputting variables that does not exist for pass id: 21\n");
-        System.out.println("Inputting variables that does not exist for ferry code: 21");
         System.out.println("Expected: Invalid pass or ferry code. Actual:" + wayward.travel(21, "21") + "\n");
 
         System.out.println("For false version 2, option 6, we are going to send pass id 1005 to Bounty to check if the luxury rating is lower than the destination island");
         System.out.println("Option 6 (invalid version 2) - The pass has a lower luxury rating than the destination island for pass id: 1005");
-        System.out.println("Ferry code: CDE3");
         System.out.println("Expected: The pass has a lower luxury rating than the destination island. Actual:" + wayward.travel(1005, "CDE3") + "\n");
 
         System.out.println("For false version 3, option 6, we are gonna send a pass id to Island Aero first and then we are going to test it");
         System.out.println("We are doing all of that because we want to check the capacity of an island, and in this case 'Aero' has a capacity of 1 pass but currently it has 0, so that's why we are sending a pass to increase it +1");
-        System.out.println("Send pass id to Yorkie: 1001");
-        System.out.println("Ferry to use: ABC1");
         wayward.travel(1001, "ABC1");
-        System.out.println("Send pass id to Aero: 1001");
-        System.out.println("Ferry to use: GHJ6");
         wayward.travel(1001, "GHJ6");
-        System.out.println("Now the island Aero has a capacity of 1 pass and it's full so we are going to test option 6");
         System.out.println("Option 6 (invalid version 3) - The destination island has reached capacity for pass id: 1005");
-        System.out.println("Ferry code: GHJ6");
         System.out.println("Expected: The destination island has reached capacity. Actual:" + wayward.travel(1005, "GHJ6") + "\n");
 
         System.out.println("For false version 4, option 6, we are sending pass id 1002 to Yorkie but that pass, currently doesn't have enough credits");
         System.out.println("Option 6 (invalid version 4) - The pass does not have enough credits for pass id: 1002");
-        System.out.println("Ferry code: ABC1");
         System.out.println("Expected: The pass does not have enough credits to travel. Actual:" + wayward.travel(1002, "ABC1") + "\n");
 
         System.out.println("For the final false version, option 6, we are going to test pass id 1001 and use ferry code ABC1 to check if this message will appear: 'The person is not on the source island'");
         System.out.println("Option 6 (invalid version 5) - The person is not on the source island for pass id: 1001");
-        System.out.println("Ferry code: ABC1");
         System.out.println("Expected: The person is not on the source island. Actual:" + wayward.travel(1001, "ABC1") + "\n");
 
-        //Testing option 7->View pass
-        System.out.println(
-               """
-               For option 7 to work properly we need to input a correct pass id number and we are
-               going to check two states of that pass, the before and after state, to check if the details changed or not.
-               We expect a change in the Credits and Journey Points.
+        // Testing option 7
+        System.out.println("""
+               If a valid pass ID is provided, the pass details are returned.
+               Otherwise, the reason is returned.
+               The tests:
+               1. Valid - Pass ID 1003 (before and after a state change).
+               2. Invalid - Pass ID 23.
                """);
-        System.out.println("Option 7, view pass ID number before going to Yorkie: 1003");
-        System.out.println(
-                """
+        System.out.println("Option 7(valid), view pass ID number before going to Yorkie: 1003");
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: Olek
@@ -361,8 +371,7 @@ public class Tester {
         System.out.println("Ferry code: ABC1");
         wayward.travel(1003, "ABC1");
         System.out.println("Option 7, view pass ID number after going to Yorkie: 1003");
-        System.out.println(
-                """
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: Olek
@@ -373,14 +382,43 @@ public class Tester {
                 ********************
                 Actual:
                 """ + wayward.viewAPass(1003) + "\n");
+        System.out.println("Option 7(invalid), view pass ID number: 23");
+        System.out.println("""
+                Expected:
+                Not found
+                Actual:
+                """ + wayward.viewAPass(23) + "\n");
 
-        //Testing option 8->Top up credits
-        System.out.println("Option 8 requires us to provide the right pass id, followed by any amount of credits more than zero.");
-        System.out.println("Option 8, Please enter the id of the pass topping up their credits: 1003");
-        System.out.println("Please enter the number of credits to be added: 100");
+
+        // Testing option 8
+        System.out.println("""
+                Option 8, If a valid pass ID is provided along with a positive credit number,
+                the pass's credit amount is increased.Otherwise, there is no change in state.
+                The tests:
+                1. Valid - Pass ID 1003, Credits 100.
+                2. Invalid - Pass ID 979, Credits 100.
+                3. Invalid - Pass ID 1003, Credits -100.
+                """);
         wayward.topUpCredits(1003, 100);
-        System.out.println(
-                """
+        System.out.println("""
+                Expected:
+                ********************
+                Guest Name: Olek
+                Pass ID Number: 1003
+                Luxury Rating: 1
+                Credits: 109
+                Journey Points: 1
+                ********************
+                Actual:
+                """ + wayward.viewAPass(1003) + "\n");
+        wayward.topUpCredits(979, 100);
+        System.out.println("""
+                Expected:
+                Not found
+                Actual:
+                """ + wayward.viewAPass(979) + "\n");
+        wayward.topUpCredits(1003, -100);
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: Olek
@@ -392,26 +430,22 @@ public class Tester {
                 Actual:
                 """ + wayward.viewAPass(1003) + "\n");
 
-        //Testing option 9->Convert points to credits
-        System.out.println(
-               """
-               Before we move on with option 9 we need to have 5 journey points in a pass, the way to increase
-               them is to use a ferry, so we are gonna use pass id (1001) because she has already 2 journey points from the earlier tests,
-               we are going to move her around different islands to increase her journey points
-                """);
+        // Testing option 9
+        System.out.println("""
+               If a valid pass ID is provided, then their journey points are converted to credits.
+               However, to conduct this test, we must get a pass with 5 journey points which can only 
+               be achieved through using the ferry.
+               The tests:                     
+               1. Valid - Pass ID 1001 (before and after convert).                     
+               2. Invalid - Pass ID 1007.
+               """);
         System.out.println("Enter pass id: 1001");
         int passId = 1001;
-        System.out.println("Enter ferry code: HJK7");
         wayward.travel(passId, "HJK7");
-        System.out.println("Enter pass id: 1001");
-        System.out.println("Enter ferry code:(BCD2)");
         wayward.travel(passId, "BCD2");
-        System.out.println("Enter pass id: 1001");
-        System.out.println("Enter ferry code: ABC1");
         wayward.travel(passId, "ABC1");
         System.out.println("View pass ID number before converting: 1001");
-        System.out.println(
-                """
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: May
@@ -426,8 +460,7 @@ public class Tester {
         System.out.println("We just converted the points to credits");
         wayward.convertPoints(passId);
         System.out.println("View pass ID number after converting: 1001");
-        System.out.println(
-                """
+        System.out.println("""
                 Expected:
                 ********************
                 Guest Name: May
@@ -438,8 +471,37 @@ public class Tester {
                 ********************
                 Actual:
                 """ + wayward.viewAPass(passId));
+        System.out.println("Enter pass id: 1007");
+        int passId2 = 1007;
+        System.out.println("View pass ID number before converting: 1007");
+        System.out.println("""
+                Expected:
+                ********************
+                Guest Name: Sol
+                Pass ID Number: 1007
+                Luxury Rating: 7
+                Credits: 20
+                Journey Points: 0
+                ********************
+                Actual:
+                """ + wayward.viewAPass(passId2) + "\n");
+        wayward.convertPoints(passId2);
+        System.out.println("View pass ID number after converting: 1007");
+        System.out.println("""
+                Expected:
+                ********************
+                Guest Name: Sol
+                Pass ID Number: 1007
+                Luxury Rating: 7
+                Credits: 20
+                Journey Points: 0
+                ********************
+                Actual:
+                """ + wayward.viewAPass(passId2));
+
+
     }
-        //No need to change this
+        // No need to change this
     public static void main(String[] args) {
         Tester tester = new Tester();
         tester.doTest();

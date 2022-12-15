@@ -126,14 +126,14 @@ public class Resort implements FIRE {
     public String getAllPassesOnIsland(String isl) {
         int targetInd = getIslandNumber(isl);
         if (targetInd == -1) {
-            return "";
-        } else {
-            String s = "";
+            return "The island doesn't exist";
+        } else{
             Island target = islands.get(targetInd);
-            for (Pass pass : target.getPassList()) {
-                s += pass + "\n";
-            }
-            return s;
+            String s = "";
+             for (Pass pass : target.getPassList()) {
+                 s += pass + "\n";
+             }
+             return s;
         }
     }
 
@@ -196,7 +196,7 @@ public class Resort implements FIRE {
      */
     public void topUpCredits(int id, int creds) {
         Pass pass = getPass(id);
-        if (pass != null) {
+        if (pass != null && creds > 0) {
             pass.addCredits(creds);
         }
     }
