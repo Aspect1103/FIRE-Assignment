@@ -1,17 +1,17 @@
-public class EmployeePass extends Pass{
+public class EmployeePass extends Pass {
     private int employeeNumber;
     private String jobDescription;
     private int journeyScore;
 
-    public EmployeePass(int passId, String name, int employeeNumber,String jobDescription,int journeyScore){
-        super(passId,name,10,4);
-        this.employeeNumber=employeeNumber;
-        this.jobDescription=jobDescription;
-        this.journeyScore=journeyScore;
+    public EmployeePass(int employeeNo, String name, int employeeNumber, String jobDesc){
+        super(employeeNo, name, 10, 4);
+        this.employeeNumber = employeeNumber;
+        jobDescription = jobDesc;
+        journeyScore = 0;
     }
 
     public void useFerry() {
-            journeyScore+=1;
+            journeyScore += 1;
     }
 
     public String toString() {

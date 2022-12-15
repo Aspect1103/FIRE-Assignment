@@ -1,16 +1,16 @@
-public class BusinessPass extends Pass{
+public class BusinessPass extends Pass {
 
     private int loyaltyPoints;
 
     public BusinessPass(int passId, String name, int luxury){
-        super(passId,name,luxury,30);
-        loyaltyPoints=20;
+        super(passId, name, luxury,30);
+        loyaltyPoints = 20;
     }
 
     public void useFerry() {
         if (getCredits() >= 3) {
             removeCredits(3);
-            loyaltyPoints+=2;
+            loyaltyPoints += 2;
         }
     }
 
