@@ -127,7 +127,7 @@ public class Resort implements FIRE {
         int targetInd = getIslandNumber(isl);
         if (targetInd == -1) {
             return "The island doesn't exist";
-        } else{
+        } else {
             Island target = islands.get(targetInd);
             String s = "";
             for (Pass pass : target.getPassList()) {
