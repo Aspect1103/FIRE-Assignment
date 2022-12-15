@@ -80,7 +80,9 @@ public class Pass {
      * @param points The amount of credits to add to the pass.
      */
     public void addCredits(int points) {
-        credits += points;
+        if (credits > 0) {
+            credits += points;
+        }
     }
 
     /**

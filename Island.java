@@ -84,7 +84,7 @@ public class Island {
      * @return Whether the pass can enter or not.
      */
     public boolean canPassEnter() {
-        return passList.size() <= islandCapacity;
+        return passList.size() < islandCapacity;
     }
 
     /**
@@ -112,14 +112,17 @@ public class Island {
      *
      * @return Whether the island has capacity or not.
      */
-    public boolean hasSpace() {
-        return passList.size() < islandCapacity;
+    public String hasSpace() {
+        if (passList.size() < islandCapacity) {
+            return "The island has capacity";
+        }
+        return "The island reached the maximum capacity";
     }
 
     /**
      * Lists all the current passes currently on the island.
      */
-    public void listCurrentPasses(){
+    public void listCurrentPasses() {
         for (Pass pass : passList) {
             System.out.println(pass);
         }

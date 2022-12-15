@@ -143,7 +143,7 @@ public class ResortUI {
      * Gets a pass id and updates its credits.
      */
     private void updateCredits() {
-        System.out.println("Please enter the id of the pass toping up their credits:");
+        System.out.println("Please enter the id of the pass topping up their credits:");
         int passId = reader.nextInt();
         System.out.println("Please enter the number of credits to be added:");
         int credits = reader.nextInt();
