@@ -65,7 +65,7 @@ public class Island {
         } else return "The island reached the maximum capacity";
     }
 
-    public void listCurrentPasses(){
+    public void listCurrentPasses() {
         for (Pass pass : passList) {
             System.out.println(pass);
         }

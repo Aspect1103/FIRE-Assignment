@@ -130,10 +130,10 @@ public class Resort implements FIRE {
         } else{
             Island target = islands.get(targetInd);
             String s = "";
-             for (Pass pass : target.getPassList()) {
-                 s += pass + "\n";
-             }
-             return s;
+            for (Pass pass : target.getPassList()) {
+                s += pass + "\n";
+            }
+            return s;
         }
     }
 
@@ -274,7 +274,7 @@ public class Resort implements FIRE {
      * @return the island with the specified name
      **/
     private Island getIsland(String islandName) {
-        for (Island island: islands) {
+        for (Island island : islands) {
             if (island.getIslandName().equals(islandName)) {
                 return island;
             }

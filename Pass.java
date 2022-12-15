@@ -41,8 +41,8 @@ public class Pass {
     }
 
     public void addCredits(int points) {
-        if(credits > 0) {
-           credits += points;
+        if (credits > 0) {
+            credits += points;
         }
     }
 

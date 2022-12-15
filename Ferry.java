@@ -29,7 +29,9 @@ public class Ferry {
         return destinationIsland;
     }
 
-    public boolean canPassTravel(Pass pass) {return pass.getCredits() >= 3;}
+    public boolean canPassTravel(Pass pass) {
+        return pass.getCredits() >= 3;
+    }
 
     public String processPass(Pass pass, Island island1, Island island2) {
         if (pass.getLuxuryRating() < island2.getIslandRating()) {
