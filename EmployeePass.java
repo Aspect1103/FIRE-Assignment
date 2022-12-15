@@ -3,9 +3,9 @@ public class EmployeePass extends Pass {
     private String jobDescription;
     private int journeyScore;
 
-    public EmployeePass(int employeeNo, String name, int employeeNumber, String jobDesc){
+    public EmployeePass(int employeeNo, String name, int employeeNum, String jobDesc){
         super(employeeNo, name, 10, 4);
-        this.employeeNumber = employeeNumber;
+        employeeNumber = employeeNum;
         jobDescription = jobDesc;
         journeyScore = 0;
     }

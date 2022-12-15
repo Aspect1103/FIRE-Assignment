@@ -3,7 +3,7 @@ public class TouristPass extends Pass {
 
     public TouristPass(int passId, String name, int luxury, int credit, String citizen){
         super(passId, name, luxury,credit);
-        this.citizenship = citizen;
+        citizenship = citizen;
     }
 
     public void useFerry() {
