@@ -1,10 +1,13 @@
 /**
- * Write a description of class Tester here.
+ * Tests the Resort class through the ResortUI class.
  *
  * @author Klevi
  * @version 09/12/2022
  */
 public class Tester {
+    /**
+     * Runs the tests for ResortUI.
+     */
     private void doTest() {
         FIRE wayward = new Resort("Wayward Islands Resort", "The Caribbean");
 
@@ -439,10 +442,14 @@ public class Tester {
                 Journey Points: 0
                 ********************
                 Actual (after):
-                """ + wayward.viewAPass(1007) + "\n");
+                """ + wayward.viewAPass(1007));
     }
 
-    // No need to change this
+    /**
+     * Runs the Tester class.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         Tester tester = new Tester();
         tester.doTest();
