@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=BusinessPass
+comment0.text=\r\n\ A\ BusinessPass\ extends\ the\ Pass\ class\ to\ add\ a\r\n\ loyalty\ points\ field\ which\ is\ increased\ every\ time\ a\r\n\ pass\ uses\ the\ ferry\ and\ can\ be\ exchanged\ for\ credits.\r\n\r\n\ @author\ Klevi\r\n\ @version\ 10/12/2022\r\n
+comment1.params=passId\ name\ luxury
+comment1.target=BusinessPass(int,\ java.lang.String,\ int)
+comment1.text=\r\n\ Constructs\ a\ BusinessPass\ object.\r\n\r\n\ @param\ passId\ The\ pass\ id.\r\n\ @param\ name\ \ \ The\ person's\ name.\r\n\ @param\ luxury\ The\ pass'\ luxury\ rating.\r\n
+comment2.params=
+comment2.target=void\ useFerry()
+comment2.text=\r\n\ Uses\ the\ ferry\ if\ possible.\r\n
+comment3.params=
+comment3.target=void\ loyaltyPointsToCredits()
+comment3.text=\r\n\ Allows\ the\ pass's\ loyalty\ points\ to\ be\ converted\ into\ credits\ (3\ loyalty\ points\ \=\ 1\ credit).\r\n
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment4.text=\r\n\ Creates\ a\ string\ representation\ of\ the\ object.\r\n\r\n\ @return\ The\ string\ representation\ of\ the\ object.\r\n
+numComments=5

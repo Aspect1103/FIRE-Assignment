@@ -20,9 +20,9 @@ public class Island {
     /**
      * Constructs an Island object.
      *
-     * @param id The id of the island.
-     * @param name The name of the island.
-     * @param rate The rating of the island.
+     * @param id       The id of the island.
+     * @param name     The name of the island.
+     * @param rate     The rating of the island.
      * @param capacity The capacity of the island.
      */
     public Island(int id, String name, int rate, int capacity) {
