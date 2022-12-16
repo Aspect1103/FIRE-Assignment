@@ -7,6 +7,9 @@
 public class Teamwork {
     private String[] details = new String[6];
 
+    /**
+     * Constructs a Teamwork object.
+     */
     public Teamwork() {
         details[0] = "Ashwell";
         details[1] = "Jack";
@@ -16,10 +19,18 @@ public class Teamwork {
         details[5] = "20067052";
     }
 
+    /**
+     * Gets the team's details.
+     *
+     * @return The team's details.
+     */
     public String[] getTeamDetails() {
         return details;
     }
 
+    /**
+     * Display's the team's details.
+     */
     public void displayDetails() {
         for (String temp : details) {
             System.out.println(temp);

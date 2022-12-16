@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 /**
- * Write a description of class ResortUI here.
+ * Provides an interface to the user allowing them to create and
+ * manage a resort.
  *
  * @author Klevi
  * @version 1/12/2022
@@ -10,6 +11,10 @@ public class ResortUI {
     private Scanner reader = new Scanner(System.in);
     private FIRE fortunate = new Resort("Fortunate Islands", "temp location 1");
 
+    /**
+     * Creates a command-line interface for the user to interact
+     * with the resort class.
+     */
     private void runUI() {
         int choice = getOption();
         while (choice != 0) {
@@ -39,6 +44,11 @@ public class ResortUI {
         System.out.println("\nThank you");
     }
 
+    /**
+     * Gets an option input from the user.
+     *
+     * @return The option input from the user.
+     */
     private int getOption() {
         System.out.println("What would you like to do ?");
         System.out.println("0. Quit");
@@ -59,24 +69,32 @@ public class ResortUI {
         return option;
     }
 
-    // This one has been done for you 
+    /**
+     * Outputs a string representation of the resort.
+     */
     private void listAllResort() {
         System.out.println(fortunate.toString());
     }
 
-    // Provide the code here
+    /**
+     * Outputs a string representation of all passes in the resort.
+     */
     private void listAllPasses() {
         System.out.println(fortunate.getAllPassesOnAllIslands());
     }
 
-    // Provide the code here
+    /**
+     * Gets an island name and outputs its details.
+     */
     private void listOneIsland() {
         System.out.println("Enter island name:");
         String islandName = reader.next();
         System.out.println(fortunate.getAllPassesOnIsland(islandName));
     }
 
-    // This one has been done for you
+    /**
+     * Gets a pass id and finds its location.
+     */
     private void findLocationOfPass() {
         System.out.println("Enter pass id:");
         int trav = reader.nextInt();
@@ -88,7 +106,9 @@ public class ResortUI {
         }
     }
 
-    // This one has been done for you 
+    /**
+     * Gets a pass id and attempts to let it travel on a ferry.
+     */
     private void tryTravel() {
         System.out.println("Enter pass id:");
         int trav = reader.nextInt();
@@ -98,7 +118,9 @@ public class ResortUI {
         System.out.println(fortunate.canTravel(trav, ferry));
     }
 
-    // Provide the code here
+    /**
+     * Gets a pass id and makes it travel on a ferry.
+     */
     private void travelNow() {
         System.out.println("Enter pass id:");
         int trav = reader.nextInt();
@@ -108,14 +130,18 @@ public class ResortUI {
         System.out.println(fortunate.travel(trav, ferry));
     }
 
-    // This one has been done for you
+    /**
+     * Gets a pass id and output its details.
+     */
     private void viewPass() {
         System.out.println("Enter pass ID number:");
         int cId = reader.nextInt();
         System.out.println(fortunate.viewAPass(cId));
     }
 
-    // Provide the code here
+    /**
+     * Gets a pass id and updates its credits.
+     */
     private void updateCredits() {
         System.out.println("Please enter the id of the pass topping up their credits:");
         int passId = reader.nextInt();
@@ -124,13 +150,20 @@ public class ResortUI {
         fortunate.topUpCredits(passId, credits);
     }
 
-    // This one has been done for you
+    /**
+     * Gets a pass id and converts its journey points to credits.
+     */
     private void convertPts() {
         System.out.println("Enter pass ID number:");
         int cId = reader.nextInt();
         fortunate.convertPoints(cId);
     }
 
+    /**
+     * Runs the ResortUI class.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         ResortUI resortTemp = new ResortUI();
         resortTemp.runUI();

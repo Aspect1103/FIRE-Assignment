@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Ferry
+comment0.text=\r\n\ A\ ferry\ provides\ a\ one-way\ journey\ between\ two\ islands.\ It\r\n\ has\ a\ ferry\ code\ and\ information\ about\ both\ the\ source\ and\r\n\ destination\ islands.\r\n\r\n\ @author\ Klevi\r\n\ @version\ 27/11/2022\r\n
+comment1.params=ferryCode\ startIsland\ endIsland
+comment1.target=Ferry(java.lang.String,\ Island,\ Island)
+comment1.text=\r\n\ Constructs\ a\ Ferry\ object.\r\n\r\n\ @param\ ferryCode\ The\ code\ for\ the\ ferry.\r\n\ @param\ startIsland\ The\ starting\ island.\r\n\ @param\ endIsland\ The\ ending\ island.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getFerryCode()
+comment2.text=\r\n\ Gets\ the\ ferry\ code.\r\n\r\n\ @return\ The\ ferry\ code.\r\n
+comment3.params=
+comment3.target=Island\ getSourceIsland()
+comment3.text=\r\n\ Gets\ the\ source\ island.\r\n\r\n\ @return\ The\ source\ island.\r\n
+comment4.params=
+comment4.target=Island\ getDestinationIsland()
+comment4.text=\r\n\ Gets\ the\ destination\ island.\r\n\r\n\ @return\ The\ destination\ island.\r\n
+comment5.params=pass
+comment5.target=boolean\ canPassTravel(Pass)
+comment5.text=\r\n\ Tests\ if\ a\ pass\ can\ travel\ based\ on\ their\ credit\ count.\r\n\r\n\ @param\ pass\ The\ pass\ to\ determine\ if\ they\ can\ trevel.\r\n\ @return\ Whether\ the\ pass\ can\ travel\ or\ not.\r\n
+comment6.params=pass\ island1\ island2
+comment6.target=java.lang.String\ processPass(Pass,\ Island,\ Island)
+comment6.text=\r\n\ Allows\ the\ pass\ to\ use\ the\ ferry\ if\ possible.\r\n\r\n\ @param\ pass\ The\ pass\ to\ process.\r\n\ @param\ island1\ The\ source\ island.\r\n\ @param\ island2\ The\ destination\ island.\r\n\ @return\ The\ output\ of\ processing\ the\ pass.\r\n
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ Creates\ a\ string\ representation\ of\ the\ object.\r\n\r\n\ @return\ The\ string\ representation\ of\ the\ object.\r\n
+numComments=8
