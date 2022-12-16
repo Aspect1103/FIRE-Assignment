@@ -442,7 +442,7 @@ public class Tester {
                 Journey Points: 0
                 ********************
                 Actual (after):
-                """ + wayward.viewAPass(1007) + "\n");
+                """ + wayward.viewAPass(1007));
     }
 
     /**
