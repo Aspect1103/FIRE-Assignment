@@ -239,7 +239,6 @@ public class Resort implements FIRE {
         passes.add(new TouristPass(3, "Bill", 10, 10, "Ukraine"));
         passes.add(new BusinessPass(11, "Anna", 10));
         passes.add(new EmployeePass(321, "Henry", "Cleaner"));
-        // REMOVE THIS NEWLINE
     }
 
     /**
