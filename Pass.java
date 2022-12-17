@@ -17,7 +17,7 @@ public class Pass {
      * Constructs a Pass object.
      *
      * @param passId The pass id.
-     * @param name The person's name.
+     * @param name   The person's name.
      * @param luxury The pass' luxury rating.
      * @param credit The amount of credit the pass has.
      */

@@ -16,7 +16,7 @@ public class Resort implements FIRE {
     /**
      * Constructs a Resort class.
      *
-     * @param name The name of the resort.
+     * @param name     The name of the resort.
      * @param location The location of the resort.
      */
     public Resort(String name, String location) {
@@ -151,7 +151,7 @@ public class Resort implements FIRE {
      * <li>The pass id and ferry code represent objects in the system.</li>
      * </ul>
      *
-     * @param cdId The id of the pass requesting the move.
+     * @param cdId    The id of the pass requesting the move.
      * @param ferCode The code of the ferry journey by which the pass wants to move.
      * @return Whether the pass is allowed on the ferry journey or not.
      **/
@@ -200,7 +200,7 @@ public class Resort implements FIRE {
     /**
      * Adds credits to a pass.
      *
-     * @param id The id of the pass to add credits to.
+     * @param id    The id of the pass to add credits to.
      * @param creds The number of credits to add to the pass.
      */
     public void topUpCredits(int id, int creds) {
@@ -236,6 +236,9 @@ public class Resort implements FIRE {
         passes.add(new Pass(1006, "Raj", 4, 5));
         passes.add(new Pass(1007, "Sol", 7, 20));
         passes.add(new Pass(1008, "Tel", 6, 30));
+        passes.add(new TouristPass(3, "Bill", 10, 10, "Ukraine"));
+        passes.add(new BusinessPass(11, "Anna", 10));
+        passes.add(new EmployeePass(321, "Henry", "Cleaner"));
     }
 
     /**

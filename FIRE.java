@@ -67,7 +67,7 @@ public interface FIRE {
      * <li>The pass id and ferry code represent objects in the system.</li>
      * </ul>
      *
-     * @param cdId The id of the pass requesting the move.
+     * @param cdId    The id of the pass requesting the move.
      * @param ferCode The code of the ferry journey by which the pass wants to move.
      * @return Whether the pass is allowed on the ferry journey or not.
      **/
@@ -100,7 +100,7 @@ public interface FIRE {
     /**
      * Adds credits to a pass.
      *
-     * @param id The id of the pass to add credits to.
+     * @param id    The id of the pass to add credits to.
      * @param creds The number of credits to add to the pass.
      */
     public void topUpCredits(int id, int creds);

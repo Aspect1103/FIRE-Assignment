@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TouristPass
+comment0.text=\r\n\ A\ TouristPass\ extends\ the\ Pass\ class\ to\ add\ a\ citizenship\r\n\ field\ and\ an\ increased\ cost\ for\ the\ ferry.\r\n\r\n\ @author\ Klevi\r\n\ @version\ 15/12/2022\r\n
+comment1.params=passId\ name\ luxury\ credit\ citizen
+comment1.target=TouristPass(int,\ java.lang.String,\ int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructs\ a\ TouristPass\ object.\r\n\r\n\ @param\ passId\ \ The\ pass\ id.\r\n\ @param\ name\ \ \ \ The\ tourist's\ name.\r\n\ @param\ luxury\ \ The\ pass'\ luxury\ rating.\r\n\ @param\ credit\ \ The\ amount\ of\ credit\ the\ pass\ has.\r\n\ @param\ citizen\ The\ tourist's\ home\ country.\r\n
+comment2.params=
+comment2.target=void\ useFerry()
+comment2.text=\r\n\ Uses\ the\ ferry\ if\ possible.\r\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\r\n\ Creates\ a\ string\ representation\ of\ the\ object.\r\n\r\n\ @return\ The\ string\ representation\ of\ the\ object.\r\n
+numComments=4

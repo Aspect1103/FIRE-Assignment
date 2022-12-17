@@ -14,9 +14,9 @@ public class Ferry {
     /**
      * Constructs a Ferry object.
      *
-     * @param ferryCode The code for the ferry.
+     * @param ferryCode   The code for the ferry.
      * @param startIsland The starting island.
-     * @param endIsland The ending island.
+     * @param endIsland   The ending island.
      */
     public Ferry(String ferryCode, Island startIsland, Island endIsland) {
         ferryID = ferryCode;
@@ -64,7 +64,7 @@ public class Ferry {
     /**
      * Allows the pass to use the ferry if possible.
      *
-     * @param pass The pass to process.
+     * @param pass    The pass to process.
      * @param island1 The source island.
      * @param island2 The destination island.
      * @return The output of processing the pass.
