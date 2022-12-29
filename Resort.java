@@ -239,6 +239,8 @@ public class Resort implements FIRE {
         passes.add(new TouristPass(3, "Bill", 10, 10, "Ukraine"));
         passes.add(new BusinessPass(11, "Anna", 10));
         passes.add(new EmployeePass(321, "Henry", "Cleaner"));
+        passes.add(new Pass(5555, "Vera", 8, 15));
+        passes.add(new ChildPass(1234, "Billy", 7, "Gregory"));
     }
 
     /**
@@ -251,6 +253,7 @@ public class Resort implements FIRE {
         Island bounty = new Island(2, "Bounty", 3, 10);
         Island twirl = new Island(3, "Twirl", 5, 2);
         Island aero = new Island(4, "Aero", 1, 1);
+        Island tizer = new Island(5, "Tizer", 5, 15);
 
         // Add the islands to the array list
         islands.add(base);
@@ -258,6 +261,7 @@ public class Resort implements FIRE {
         islands.add(bounty);
         islands.add(twirl);
         islands.add(aero);
+        islands.add(tizer);
 
         // Create the ferries and add them to the array list
         ferries.add(new Ferry("ABC1", base, yorkie));
@@ -268,6 +272,8 @@ public class Resort implements FIRE {
         ferries.add(new Ferry("EFG5", twirl, yorkie));
         ferries.add(new Ferry("GHJ6", yorkie, aero));
         ferries.add(new Ferry("HJK7", aero, yorkie));
+        ferries.add(new Ferry("YYY", bounty, tizer));
+        ferries.add(new Ferry("ZZZ", tizer, twirl));
     }
 
     /**
