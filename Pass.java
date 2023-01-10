@@ -116,6 +116,13 @@ public class Pass {
     }
 
     /**
+     * Adds points to the pass' journey points.
+     */
+    public void addJourneyPoints(int points) {
+        journeyPoints += points;
+    }
+
+    /**
      * Creates a string representation of the object.
      *
      * @return The string representation of the object.

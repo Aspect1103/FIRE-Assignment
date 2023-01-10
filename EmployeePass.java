@@ -10,7 +10,6 @@
 public class EmployeePass extends Pass {
     private int employeeNumber;
     private String jobDescription;
-    private int journeyScore;
 
     /**
      * Constructs an EmployeePass object.
@@ -23,14 +22,13 @@ public class EmployeePass extends Pass {
         super(employeeNo, name, 10, 4);
         employeeNumber = employeeNo;
         jobDescription = jobDesc;
-        journeyScore = 0;
     }
 
     /**
      * Uses the ferry if possible.
      */
     public void useFerry() {
-        journeyScore += 1;
+        addJourneyPoints(1);
     }
 
     /**
@@ -43,7 +41,7 @@ public class EmployeePass extends Pass {
                 getGuestName() + "\nPass ID Number: " +
                 getPassIdNumber() + "\nEmployee Number: " +
                 employeeNumber + "\nJob Description: " +
-                jobDescription + "\nJourney Score: " +
-                journeyScore + "\n********************";
+                jobDescription + "\nJourney Points: " +
+                getJourneyPoints() + "\n********************";
     }
 }
