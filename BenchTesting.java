@@ -27,7 +27,6 @@ public class BenchTesting {
         System.out.println("Expected: Sweetfish. Actual: " + island2.getIslandName());
         System.out.println("Expected: 2. Actual: " + island3.getIslandRating());
         System.out.println("Expected: 2. Actual: " + island1.getIslandCapacity());
-        System.out.println("Expected: []. Actual: " + island2.getPassList());
         System.out.println();
 
         // Test the ferry accessors
@@ -57,11 +56,21 @@ public class BenchTesting {
 
         // Test the island methods
         island1.enter(pass);
-        System.out.println("Expected: 1. Actual: " + island1.getPassList().size() + "\n");
+        System.out.println("""
+                Expected:
+                ********************
+                Guest Name: temp
+                Pass ID Number: 1
+                Luxury Rating: 5
+                Credits: 20
+                Journey Points: 0
+                ********************
+                Actual:
+                """ + island1.listCurrentPasses());
         island1.leave(pass);
-        System.out.println("Expected: 0. Actual: " + island1.getPassList().size() + "\n");
+        System.out.println("Expected: . Actual: " + island1.listCurrentPasses());
 
-        System.out.println("Expected: true. Actual: " + island1.hasSpace() + "\n");
+        System.out.println("Expected: The island has capacity. Actual: " + island1.hasSpace() + "\n");
 
         island1.enter(pass);
         System.out.println("""

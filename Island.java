@@ -70,15 +70,6 @@ public class Island {
     }
 
     /**
-     * Gets the pass list.
-     *
-     * @return The pass list.
-     */
-    public ArrayList<Pass> getPassList() {
-        return passList;
-    }
-
-    /**
      * Tests if a pass can enter the island based on the capacity.
      *
      * @return Whether the pass can enter or not.
@@ -121,11 +112,15 @@ public class Island {
 
     /**
      * Lists all the current passes currently on the island.
+     *
+     * @return The current passes.
      */
-    public void listCurrentPasses() {
+    public String listCurrentPasses() {
+        String s = "";
         for (Pass pass : passList) {
-            System.out.println(pass);
+            s += pass + "\n";
         }
+        return s;
     }
 
     /**

@@ -83,6 +83,25 @@ public class Tester {
                 Luxury Rating: 6
                 Credits: 30
                 Journey Points: 0
+                ********************, ********************
+                Guest Name: Bill
+                Pass ID Number: 3
+                Luxury Rating: 10
+                Credits: 10
+                Citizenship: Ukraine
+                Journey Points: 0
+                ********************, ********************
+                Guest Name: Anna
+                Pass ID Number: 11
+                Luxury Rating: 10
+                Credits: 30
+                Loyalty Points: 20
+                ********************, ********************
+                Employee Name: Henry
+                Pass ID Number: 321
+                Employee Number: 321
+                Job Description: Cleaner
+                Journey Points: 0
                 ********************]
                 ********************, ********************
                 Island ID Number: 1
@@ -189,6 +208,28 @@ public class Tester {
                 Credits: 30
                 Journey Points: 0
                 ********************
+                ********************
+                Guest Name: Bill
+                Pass ID Number: 3
+                Luxury Rating: 10
+                Credits: 10
+                Citizenship: Ukraine
+                Journey Points: 0
+                ********************
+                ********************
+                Guest Name: Anna
+                Pass ID Number: 11
+                Luxury Rating: 10
+                Credits: 30
+                Loyalty Points: 20
+                ********************
+                ********************
+                Employee Name: Henry
+                Pass ID Number: 321
+                Employee Number: 321
+                Job Description: Cleaner
+                Journey Points: 0
+                ********************
                 Actual:
                 """ + wayward.getAllPassesOnAllIslands() + "\n");
 
@@ -263,6 +304,28 @@ public class Tester {
                 Pass ID Number: 1008
                 Luxury Rating: 6
                 Credits: 30
+                Journey Points: 0
+                ********************
+                ********************
+                Guest Name: Bill
+                Pass ID Number: 3
+                Luxury Rating: 10
+                Credits: 10
+                Citizenship: Ukraine
+                Journey Points: 0
+                ********************
+                ********************
+                Guest Name: Anna
+                Pass ID Number: 11
+                Luxury Rating: 10
+                Credits: 30
+                Loyalty Points: 20
+                ********************
+                ********************
+                Employee Name: Henry
+                Pass ID Number: 321
+                Employee Number: 321
+                Job Description: Cleaner
                 Journey Points: 0
                 ********************
                 Actual:

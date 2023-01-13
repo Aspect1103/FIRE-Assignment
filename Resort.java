@@ -59,17 +59,22 @@ public class Resort implements FIRE {
      * @return A string representation of all passes on all islands.
      **/
     public String getAllPassesOnAllIslands() {
-        ArrayList<Pass> allPasses = new ArrayList<Pass>();
-        islands.forEach(island -> allPasses.addAll(island.getPassList()));
-        if (allPasses.size() == 0) {
-            return "No passes";
-        } else {
-            String s = "";
-            for (Pass pass : allPasses) {
-                s += pass + "\n";
-            }
-            return s;
+        String s = "";
+        for (Island island : islands) {
+            s += island.listCurrentPasses();
         }
+        return s;
+//        ArrayList<Pass> allPasses = new ArrayList<>();
+//        islands.forEach(island -> allPasses.addAll(island.getPassList()));
+//        if (allPasses.size() == 0) {
+//            return "No passes";
+//        } else {
+//            String s = "";
+//            for (Pass pass : allPasses) {
+//                s += pass + "\n";
+//            }
+//            return s;
+//        }
     }
 
     /**
@@ -130,12 +135,7 @@ public class Resort implements FIRE {
         if (targetInd == -1) {
             return "The island doesn't exist";
         } else {
-            Island target = islands.get(targetInd);
-            String s = "";
-            for (Pass pass : target.getPassList()) {
-                s += pass + "\n";
-            }
-            return s;
+            return islands.get(targetInd).listCurrentPasses();
         }
     }
 
